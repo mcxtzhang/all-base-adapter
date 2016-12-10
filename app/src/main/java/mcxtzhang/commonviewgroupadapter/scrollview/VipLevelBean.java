@@ -1,5 +1,8 @@
 package mcxtzhang.commonviewgroupadapter.scrollview;
 
+import mcxtzhang.commonadapter.adapter.mul.IMulTypeHelper;
+import mcxtzhang.commonviewgroupadapter.R;
+
 /**
  * 介绍：
  * 作者：zhangxutong
@@ -8,7 +11,7 @@ package mcxtzhang.commonviewgroupadapter.scrollview;
  * 时间： 16/12/08.
  */
 
-public class VipLevelBean {
+public class VipLevelBean implements IMulTypeHelper {
     private int level;
     private int levelValue;
     private boolean isCurrent;
@@ -42,5 +45,14 @@ public class VipLevelBean {
     public VipLevelBean setLevelValue(int levelValue) {
         this.levelValue = levelValue;
         return this;
+    }
+
+    @Override
+    public int getItemLayoutId() {
+        if (isCurrent()) {
+            return R.layout.item_current;
+        } else {
+            return R.layout.item_normal;
+        }
     }
 }

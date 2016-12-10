@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
+import mcxtzhang.commonviewgroupadapter.multype.MulTypeActivity;
 import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
 
 public class LauncherActivity extends AppCompatActivity {
@@ -26,6 +27,13 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, ScrollViewDemoActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnMulType).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, MulTypeActivity.class));
             }
         });
 
