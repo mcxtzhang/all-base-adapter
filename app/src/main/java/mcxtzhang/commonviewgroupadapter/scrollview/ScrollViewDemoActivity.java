@@ -13,12 +13,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mcxtzhang.commonvgadapter.BaseVgAdapter;
-import mcxtzhang.commonvgadapter.ViewGroupUtils;
+import mcxtzhang.commonadapter.adapter.base.BaseAdapter;
+import mcxtzhang.commonadapter.OnItemClickListener;
+import mcxtzhang.commonadapter.OnItemLongClickListener;
+import mcxtzhang.commonadapter.ViewGroupUtils;
 import mcxtzhang.commonviewgroupadapter.R;
 
 public class ScrollViewDemoActivity extends AppCompatActivity {
@@ -41,32 +44,45 @@ public class ScrollViewDemoActivity extends AppCompatActivity {
             public void run() {
                 animPbs = new ArrayList<ProgressBar>();
 
-                ViewGroupUtils.addViews(mLlcontainer, new BaseVgAdapter<VipLevelBean>(mDatas = initDatas(), ScrollViewDemoActivity.this) {
-                    @Override
-                    public View getView(ViewGroup parent, int pos, VipLevelBean data) {
-                        View itemView;
-                        TextView tvLevel;
-                        ProgressBar pb;
-                        if (data.isCurrent()) {
-                            itemView = mInflater.inflate(R.layout.item_current, parent, false);
-                            mAvatar = (ImageView) itemView.findViewById(R.id.ivAvatar);
-                        } else {
-                            itemView = mInflater.inflate(R.layout.item_normal, parent, false);
-                        }
-                        tvLevel = (TextView) itemView.findViewById(R.id.tvLevel);
-                        pb = (ProgressBar) itemView.findViewById(R.id.pb);
+                ViewGroupUtils.addViews(mLlcontainer, new BaseAdapter<VipLevelBean>(mDatas = initDatas(), ScrollViewDemoActivity.this) {
+                            @Override
+                            public View getView(ViewGroup parent, int pos, VipLevelBean data) {
+                                View itemView;
+                                TextView tvLevel;
+                                ProgressBar pb;
+                                if (data.isCurrent()) {
+                                    itemView = mInflater.inflate(R.layout.item_current, parent, false);
+                                    mAvatar = (ImageView) itemView.findViewById(R.id.ivAvatar);
+                                } else {
+                                    itemView = mInflater.inflate(R.layout.item_normal, parent, false);
+                                }
+                                tvLevel = (TextView) itemView.findViewById(R.id.tvLevel);
+                                pb = (ProgressBar) itemView.findViewById(R.id.pb);
 
 
-                        animPbs.add(pb);
+                                animPbs.add(pb);
                         /*if (pos == getCount() - 1) {
                             //开始动画
                             beginAnim(animPbs, mScrollView, mDatas, mAvatar);
                         }*/
 
-                        tvLevel.setText(data.getLevel() + "");
-                        return itemView;
-                    }
-                }, true, null, null);
+                                tvLevel.setText(data.getLevel() + "");
+                                return itemView;
+                            }
+                        }, true
+                        , new OnItemClickListener() {
+                            @Override
+                            public void onItemClick(ViewGroup parent, View itemView, int position) {
+                                Toast.makeText(ScrollViewDemoActivity.this, "click:" + position, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        , new OnItemLongClickListener() {
+                            @Override
+                            public boolean onItemLongClick(ViewGroup parent, View itemView, int position) {
+                                Toast.makeText(ScrollViewDemoActivity.this, "long click:" + position, Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                        });
             }
         });
 

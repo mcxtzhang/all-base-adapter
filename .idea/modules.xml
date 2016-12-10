@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CommonViewGroupAdapter.iml" filepath="$PROJECT_DIR$/CommonViewGroupAdapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/commonvgadapter/commonvgadapter.iml" filepath="$PROJECT_DIR$/commonvgadapter/commonvgadapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/commonadapter/commonadapter.iml" filepath="$PROJECT_DIR$/commonadapter/commonadapter.iml" />
     </modules>
   </component>
 </project>

@@ -1,1 +1,1 @@
-include ':app', ':commonvgadapter'
+include ':app', ':commonadapter'

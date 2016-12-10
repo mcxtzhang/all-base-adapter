@@ -1,7 +1,9 @@
-package mcxtzhang.commonvgadapter;
+package mcxtzhang.commonadapter;
 
 import android.view.View;
 import android.view.ViewGroup;
+
+import mcxtzhang.commonadapter.adapter.base.IViewGroupAdapter;
 
 /**
  * 介绍：
@@ -13,7 +15,7 @@ import android.view.ViewGroup;
 
 public class ViewGroupUtils {
 
-    public static void addViews(final ViewGroup viewGroup, BaseVgAdapter adapter, boolean removeViews
+    public static void addViews(final ViewGroup viewGroup, IViewGroupAdapter adapter, boolean removeViews
             , final OnItemClickListener onItemClickListener
             , final OnItemLongClickListener onItemLongClickListener) {
         if (viewGroup == null || adapter == null) {

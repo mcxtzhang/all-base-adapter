@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
 
 public class LauncherActivity extends AppCompatActivity {
@@ -14,11 +15,20 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
+        findViewById(R.id.btnLinearLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, LinearLayoutActivity.class));
+            }
+        });
+
         findViewById(R.id.btnScrollView).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, ScrollViewDemoActivity.class));
             }
         });
+
+
     }
 }
