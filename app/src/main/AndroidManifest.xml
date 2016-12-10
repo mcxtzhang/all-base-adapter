@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".multype.MulTypeActivity">
         </activity>
+        <activity android:name=".multype.MulTypeMulBeanActivity">
+        </activity>
     </application>
 
 </manifest>

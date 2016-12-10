@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mcxtzhang.commonadapter.adapter.base.BaseAdapter;
-import mcxtzhang.commonadapter.OnItemClickListener;
-import mcxtzhang.commonadapter.OnItemLongClickListener;
+import mcxtzhang.commonadapter.listener.OnItemClickListener;
+import mcxtzhang.commonadapter.listener.OnItemLongClickListener;
 import mcxtzhang.commonadapter.ViewGroupUtils;
 import mcxtzhang.commonviewgroupadapter.R;
 
@@ -44,7 +44,7 @@ public class ScrollViewDemoActivity extends AppCompatActivity {
             public void run() {
                 animPbs = new ArrayList<ProgressBar>();
 
-                ViewGroupUtils.addViews(mLlcontainer, new BaseAdapter<VipLevelBean>(mDatas = initDatas(), ScrollViewDemoActivity.this) {
+                ViewGroupUtils.addViews(mLlcontainer, new BaseAdapter<VipLevelBean>(ScrollViewDemoActivity.this, mDatas = initDatas()) {
                             @Override
                             public View getView(ViewGroup parent, int pos, VipLevelBean data) {
                                 View itemView;
@@ -58,7 +58,18 @@ public class ScrollViewDemoActivity extends AppCompatActivity {
                                 }
                                 tvLevel = (TextView) itemView.findViewById(R.id.tvLevel);
                                 pb = (ProgressBar) itemView.findViewById(R.id.pb);
-
+ /*                               itemView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Toast.makeText(mContext, "itemView ", Toast.LENGTH_SHORT).show();
+                                    }
+                                });*/
+                                tvLevel.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Toast.makeText(mContext, "textview", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
 
                                 animPbs.add(pb);
                         /*if (pos == getCount() - 1) {

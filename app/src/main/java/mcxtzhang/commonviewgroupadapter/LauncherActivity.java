@@ -7,6 +7,7 @@ import android.view.View;
 
 import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.multype.MulTypeActivity;
+import mcxtzhang.commonviewgroupadapter.multype.MulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
 
 public class LauncherActivity extends AppCompatActivity {
@@ -34,6 +35,13 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, MulTypeActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnMulTypeMulBean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, MulTypeMulBeanActivity.class));
             }
         });
 

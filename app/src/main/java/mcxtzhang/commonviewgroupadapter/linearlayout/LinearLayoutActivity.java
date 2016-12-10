@@ -30,7 +30,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
         mDatas = initDatas();
 
-        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_linear_layout), new SingleAdapter<TestBean>(mDatas, this, R.layout.item_test) {
+        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_linear_layout), new SingleAdapter<TestBean>(this, mDatas, R.layout.item_test) {
             @Override
             public void onBindView(ViewGroup parent, View itemView, TestBean data, int pos) {
                 Log.d(TAG, "onBindView() called with: parent = [" + parent + "], itemView = [" + itemView + "], data = [" + data + "], pos = [" + pos + "]");
@@ -40,7 +40,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
                 ((TextView) itemView.findViewById(R.id.tvName)).setText(data.getName());
             }
-        }, false, null, null);
+        });
 
     }
 

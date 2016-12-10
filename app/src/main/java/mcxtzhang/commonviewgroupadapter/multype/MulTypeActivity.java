@@ -22,14 +22,14 @@ public class MulTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mul_type);
 
 
-        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_mul_type), new MulTypeAdapter<VipLevelBean>(initDatas(), this) {
+        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_mul_type), new MulTypeAdapter<VipLevelBean>(this, initDatas()) {
             @Override
             public void onBindView(ViewGroup parent, View itemView, VipLevelBean data, int pos) {
                 TextView tvLevel;
                 tvLevel = (TextView) itemView.findViewById(R.id.tvLevel);
                 tvLevel.setText(data.getLevel() + "");
             }
-        }, false, null, null);
+        });
     }
 
 

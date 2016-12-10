@@ -29,5 +29,11 @@
         android:id="@+id/btnMulType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="多种Type Demo"/>
+        android:text="多种Type 同种数据结构 Demo"/>
+
+    <Button
+        android:id="@+id/btnMulTypeMulBean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="多种Type 不同数据结构 Demo"/>
 </LinearLayout>

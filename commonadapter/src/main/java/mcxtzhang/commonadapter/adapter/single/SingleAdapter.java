@@ -22,8 +22,8 @@ public abstract class SingleAdapter<T> extends BaseAdapter<T> {
 
     private int mItemLayoutId;
 
-    public SingleAdapter(List<T> datas, Context context, int itemLayoutId) {
-        super(datas, context);
+    public SingleAdapter(Context context, List<T> datas, int itemLayoutId) {
+        super(context, datas);
         mItemLayoutId = itemLayoutId;
     }
 

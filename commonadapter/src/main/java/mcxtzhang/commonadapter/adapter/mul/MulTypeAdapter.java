@@ -17,8 +17,8 @@ import mcxtzhang.commonadapter.adapter.base.BaseAdapter;
  */
 
 public abstract class MulTypeAdapter<T extends IMulTypeHelper> extends BaseAdapter<T> {
-    public MulTypeAdapter(List<T> datas, Context context) {
-        super(datas, context);
+    public MulTypeAdapter(Context context, List<T> datas) {
+        super(context, datas);
     }
 
     @Override

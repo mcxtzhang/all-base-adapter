@@ -22,7 +22,7 @@ public abstract class BaseAdapter<T> implements IViewGroupAdapter {
     protected Context mContext;
     protected LayoutInflater mInflater;
 
-    public BaseAdapter(List<T> datas, Context context) {
+    public BaseAdapter(Context context, List<T> datas) {
         mDatas = datas;
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
