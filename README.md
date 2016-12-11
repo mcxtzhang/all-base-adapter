@@ -220,3 +220,10 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
 ## About
 ![](https://dn-mhke0kuv.qbox.me/1d7d8c9b3cc3b6008f17.png)
 
+
+## to do list
+* 考虑加入复用缓存池
+* 考虑替换`onBindView()`的`ItemView`->`通用的ViewHolder`，这样可以少写一些`findViewById()`代码
+* 整合DataBinding 的通用Adapter入库。
+* 整合 RecyclerView、ListView的通用Adapter入库。
+* 加入一些自定义ViewGroup入库，例如流式布局，九宫格，Banner轮播图。
