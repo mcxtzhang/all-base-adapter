@@ -1,12 +1,12 @@
-package mcxtzhang.commonadapter.adapter.single;
+package com.mcxtzhang.commonadapter.adapter.single;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import com.mcxtzhang.commonadapter.adapter.base.BaseAdapter;
 
-import mcxtzhang.commonadapter.adapter.base.BaseAdapter;
+import java.util.List;
 
 /**
  * 介绍：一个简化的Adapter

@@ -1,4 +1,4 @@
-package mcxtzhang.commonadapter.adapter.mul;
+package com.mcxtzhang.commonadapter.adapter.mul;
 
 import android.content.Context;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import mcxtzhang.commonadapter.adapter.base.BaseAdapter;
+import com.mcxtzhang.commonadapter.adapter.base.BaseAdapter;
 
 /**
  * 介绍：支持多种布局的Adapter

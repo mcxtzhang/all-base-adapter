@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mcxtzhang.commonadapter.ViewGroupUtils;
-import mcxtzhang.commonadapter.adapter.single.SingleAdapter;
+import com.mcxtzhang.commonadapter.adapter.single.SingleAdapter;
 import mcxtzhang.commonviewgroupadapter.R;
 import mcxtzhang.commonviewgroupadapter.TestBean;
 

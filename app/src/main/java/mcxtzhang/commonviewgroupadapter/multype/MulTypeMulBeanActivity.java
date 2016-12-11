@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mcxtzhang.commonadapter.ViewGroupUtils;
-import mcxtzhang.commonadapter.adapter.mul.IMulTypeHelper;
-import mcxtzhang.commonadapter.adapter.mul.MulTypeAdapter;
+import com.mcxtzhang.commonadapter.adapter.mul.IMulTypeHelper;
+import com.mcxtzhang.commonadapter.adapter.mul.MulTypeAdapter;
 import mcxtzhang.commonviewgroupadapter.R;
 
 public class MulTypeMulBeanActivity extends AppCompatActivity {

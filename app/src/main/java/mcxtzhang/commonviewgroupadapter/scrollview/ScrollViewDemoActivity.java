@@ -18,9 +18,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import mcxtzhang.commonadapter.adapter.base.BaseAdapter;
-import mcxtzhang.commonadapter.listener.OnItemClickListener;
-import mcxtzhang.commonadapter.listener.OnItemLongClickListener;
+import com.mcxtzhang.commonadapter.adapter.base.BaseAdapter;
+import com.mcxtzhang.commonadapter.listener.OnItemClickListener;
+import com.mcxtzhang.commonadapter.listener.OnItemLongClickListener;
 import mcxtzhang.commonadapter.ViewGroupUtils;
 import mcxtzhang.commonviewgroupadapter.R;
 

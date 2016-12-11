@@ -1,11 +1,11 @@
-package mcxtzhang.commonadapter;
+package com.mcxtzhang.commonadapter;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import mcxtzhang.commonadapter.adapter.base.IViewGroupAdapter;
-import mcxtzhang.commonadapter.listener.OnItemClickListener;
-import mcxtzhang.commonadapter.listener.OnItemLongClickListener;
+import com.mcxtzhang.commonadapter.adapter.base.IViewGroupAdapter;
+import com.mcxtzhang.commonadapter.listener.OnItemClickListener;
+import com.mcxtzhang.commonadapter.listener.OnItemLongClickListener;
 
 /**
  * 介绍：

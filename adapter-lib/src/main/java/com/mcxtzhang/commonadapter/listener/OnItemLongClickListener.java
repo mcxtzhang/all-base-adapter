@@ -1,4 +1,4 @@
-package mcxtzhang.commonadapter.listener;
+package com.mcxtzhang.commonadapter.listener;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,6 @@ import android.view.ViewGroup;
  * 主页：http://blog.csdn.net/zxt0601
  * 时间： 16/12/10.
  */
-
-public interface OnItemClickListener {
-    void onItemClick(ViewGroup parent, View itemView, int position);
+public interface OnItemLongClickListener {
+    boolean onItemLongClick(ViewGroup parent, View itemView, int position);
 }
