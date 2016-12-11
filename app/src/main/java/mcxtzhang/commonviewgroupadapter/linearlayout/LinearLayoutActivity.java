@@ -17,7 +17,13 @@ import java.util.List;
 
 import mcxtzhang.commonviewgroupadapter.R;
 import mcxtzhang.commonviewgroupadapter.TestBean;
-
+/**
+ * 介绍：单一Item类型：
+ * 作者：zhangxutong
+ * 邮箱：mcxtzhang@163.com
+ * 主页：http://blog.csdn.net/zxt0601
+ * 时间： 16/12/10.
+ */
 public class LinearLayoutActivity extends AppCompatActivity {
     private static final String TAG = "zxt";
     private List<TestBean> mDatas;

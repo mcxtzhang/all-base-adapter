@@ -21,6 +21,13 @@ import mcxtzhang.commonviewgroupadapter.R;
 
 import static mcxtzhang.commonviewgroupadapter.R.id.ivAvatar;
 
+/**
+ * 介绍：多种Item类型：数据结构相同：
+ * 作者：zhangxutong
+ * 邮箱：mcxtzhang@163.com
+ * 主页：http://blog.csdn.net/zxt0601
+ * 时间： 16/12/10.
+ */
 public class MulTypeActivity extends AppCompatActivity {
 
     @Override

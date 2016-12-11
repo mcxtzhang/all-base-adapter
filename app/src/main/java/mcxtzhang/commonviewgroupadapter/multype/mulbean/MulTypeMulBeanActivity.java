@@ -16,7 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mcxtzhang.commonviewgroupadapter.R;
-
+/**
+ * 介绍：多种Item类型：数据结构不同:：
+ * 作者：zhangxutong
+ * 邮箱：mcxtzhang@163.com
+ * 主页：http://blog.csdn.net/zxt0601
+ * 时间： 16/12/10.
+ */
 public class MulTypeMulBeanActivity extends AppCompatActivity {
 
     @Override

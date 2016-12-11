@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".multype.mulbean.MulTypeMulBeanActivity">
         </activity>
+        <activity android:name=".flowswipe.FlowSwipeActivity">
+        </activity>
     </application>
 
 </manifest>

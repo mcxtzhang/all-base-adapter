@@ -9,6 +9,7 @@ import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.multype.MulTypeActivity;
 import mcxtzhang.commonviewgroupadapter.multype.mulbean.MulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
+import mcxtzhang.commonviewgroupadapter.flowswipe.FlowSwipeActivity;
 
 public class LauncherActivity extends AppCompatActivity {
 
@@ -42,6 +43,13 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, MulTypeMulBeanActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnFlowSwipe).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, FlowSwipeActivity.class));
             }
         });
 

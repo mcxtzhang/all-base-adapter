@@ -36,4 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="多种Type 不同数据结构 Demo"/>
+
+    <Button
+        android:id="@+id/btnFlowSwipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="酷炫：流式布局+侧滑菜单"/>
 </LinearLayout>

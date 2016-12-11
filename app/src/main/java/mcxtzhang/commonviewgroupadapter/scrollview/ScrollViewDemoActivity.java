@@ -24,7 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mcxtzhang.commonviewgroupadapter.R;
-
+/**
+ * 介绍：此Demo可先不看，下一期的Demo代码，还需要修改。
+ * 作者：zhangxutong
+ * 邮箱：mcxtzhang@163.com
+ * 主页：http://blog.csdn.net/zxt0601
+ * 时间： 16/12/10.
+ */
 public class ScrollViewDemoActivity extends AppCompatActivity {
     private static final String TAG = "zxt";
     HorizontalScrollView mScrollView;
