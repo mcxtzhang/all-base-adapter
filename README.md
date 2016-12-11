@@ -52,16 +52,13 @@ http://www.jianshu.com/users/8e91ff99b072/timeline
 
 # 效果一览：
 
-![margin等属性都是正常显示的](https://dn-mhke0kuv.qbox.me/39314a2a496a1b535c94.png)
+![多种Item，数据结构相同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype1.gif)
 
+![这次用横向展示 多种Item，数据结构不同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype2.gif)
 
-![多种Item，数据结构相同。](https://dn-mhke0kuv.qbox.me/a8c02723da9af58db64e.gif)
+![文首提到的，一开始是个水平ScrollView](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/nochange.gif)
 
-![这次用横向展示 多种Item，数据结构不同。](https://dn-mhke0kuv.qbox.me/cf90d0e62ebaeab6649d.gif)
-
-![文首提到的，一开始是个水平ScrollView](https://dn-mhke0kuv.qbox.me/175dc409f9a95b04eb2f.gif)
-
-![替换成流式布局](https://dn-mhke0kuv.qbox.me/3e3b66d47da71a2e1c53.gif)
+![替换成流式布局](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/FlowSwipe.gif)
 
 
 # 使用：
@@ -102,7 +99,7 @@ Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一
 ```
 效果：
 
-![margin等属性都是正常显示的](https://dn-mhke0kuv.qbox.me/39314a2a496a1b535c94.png)
+![margin等属性都是正常显示的](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/single.gif)
 
 
 ### 多种Item类型：
@@ -127,7 +124,7 @@ Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一
 
 效果：
 
-![多种Item，数据结构相同。](https://dn-mhke0kuv.qbox.me/a8c02723da9af58db64e.gif)
+![多种Item，数据结构相同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype1.gif)
 
 #### 数据结构不同:
 如果数据结构不同，则不用传入泛型，但是使用时需要强转：
@@ -174,7 +171,7 @@ public class MulBean2 implements IMulTypeHelper {
 
 Item1布局是一个ImageView，Item2布局是一个TextView 
 效果：
-![这次用横向展示 多种Item，数据结构不同。](https://dn-mhke0kuv.qbox.me/cf90d0e62ebaeab6649d.gif)
+![这次用横向展示 多种Item，数据结构不同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype2.gif)
 
 ### Item点击事件
 item的点击和长按等事件，有两种方法设置,这里以点击事件为例，长按事件同理：
@@ -218,7 +215,7 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
 
 
 ## About
-![](https://dn-mhke0kuv.qbox.me/1d7d8c9b3cc3b6008f17.png)
+![](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.gif)
 
 
 ## to do list
