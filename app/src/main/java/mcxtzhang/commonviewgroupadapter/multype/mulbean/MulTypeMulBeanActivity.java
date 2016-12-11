@@ -31,8 +31,11 @@ public class MulTypeMulBeanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mul_type_mul_bean);
 
         List datas = new ArrayList();
-        datas.add(new MulBean1("http://p14.go007.com/2014_11_02_05/a03541088cce31b8_1.jpg"));
-        datas.add(new MulBean2("张旭童"));
+        for (int i = 0; i < 10; i++) {
+            datas.add(new MulBean1("http://p14.go007.com/2014_11_02_05/a03541088cce31b8_1.jpg"));
+            datas.add(new MulBean2("张旭童"));
+        }
+
 
         //多种Item类型：数据结构不同 不传泛型了 使用时需要强转javaBean，判断ItemLayoutId
         ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_mul_type_mul_bean), new MulTypeAdapter(this, datas) {
