@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.multype;
+package mcxtzhang.commonviewgroupadapter.multype.mulbean;
 
 import com.mcxtzhang.commonadapter.adapter.mul.IMulTypeHelper;
 import mcxtzhang.commonviewgroupadapter.R;
@@ -29,6 +29,6 @@ public class MulBean1 implements IMulTypeHelper {
 
     @Override
     public int getItemLayoutId() {
-        return R.layout.item_mul_1;
+        return R.layout.item_mulbean_1;
     }
 }

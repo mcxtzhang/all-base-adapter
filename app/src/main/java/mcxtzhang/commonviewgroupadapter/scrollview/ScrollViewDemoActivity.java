@@ -15,13 +15,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.mcxtzhang.commonadapter.ViewGroupUtils;
 import com.mcxtzhang.commonadapter.adapter.base.BaseAdapter;
 import com.mcxtzhang.commonadapter.listener.OnItemClickListener;
 import com.mcxtzhang.commonadapter.listener.OnItemLongClickListener;
-import mcxtzhang.commonadapter.ViewGroupUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import mcxtzhang.commonviewgroupadapter.R;
 
 public class ScrollViewDemoActivity extends AppCompatActivity {

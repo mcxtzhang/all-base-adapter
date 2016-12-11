@@ -2,42 +2,42 @@ package mcxtzhang.commonviewgroupadapter.linearlayout;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.mcxtzhang.commonadapter.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.adapter.single.SingleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import mcxtzhang.commonadapter.ViewGroupUtils;
-import com.mcxtzhang.commonadapter.adapter.single.SingleAdapter;
 import mcxtzhang.commonviewgroupadapter.R;
 import mcxtzhang.commonviewgroupadapter.TestBean;
 
 public class LinearLayoutActivity extends AppCompatActivity {
     private static final String TAG = "zxt";
     private List<TestBean> mDatas;
+    private LinearLayout mLinearLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_layout);
-
+        mLinearLayout = (LinearLayout) findViewById(R.id.activity_linear_layout);
         mDatas = initDatas();
 
-        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_linear_layout), new SingleAdapter<TestBean>(this, mDatas, R.layout.item_test) {
+        //单一ItemView
+        ViewGroupUtils.addViews(mLinearLayout, new SingleAdapter<TestBean>(this, mDatas, R.layout.item_test) {
             @Override
             public void onBindView(ViewGroup parent, View itemView, TestBean data, int pos) {
-                Log.d(TAG, "onBindView() called with: parent = [" + parent + "], itemView = [" + itemView + "], data = [" + data + "], pos = [" + pos + "]");
                 Glide.with(LinearLayoutActivity.this)
                         .load(data.getAvatar())
                         .into((ImageView) itemView.findViewById(R.id.ivAvatar));
-
                 ((TextView) itemView.findViewById(R.id.tvName)).setText(data.getName());
             }
         });

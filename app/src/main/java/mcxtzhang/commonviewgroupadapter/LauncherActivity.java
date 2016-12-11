@@ -7,7 +7,7 @@ import android.view.View;
 
 import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.multype.MulTypeActivity;
-import mcxtzhang.commonviewgroupadapter.multype.MulTypeMulBeanActivity;
+import mcxtzhang.commonviewgroupadapter.multype.mulbean.MulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
 
 public class LauncherActivity extends AppCompatActivity {
