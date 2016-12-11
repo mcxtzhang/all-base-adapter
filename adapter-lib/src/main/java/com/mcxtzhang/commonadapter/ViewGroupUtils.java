@@ -8,7 +8,10 @@ import com.mcxtzhang.commonadapter.listener.OnItemClickListener;
 import com.mcxtzhang.commonadapter.listener.OnItemLongClickListener;
 
 /**
- * 介绍：
+ * 介绍：ViewGroupUtils
+ * 为任意ViewGroup 动态addView的工具类，
+ * 只依赖于 IViewGroupAdapter 接口
+ * <p>
  * 作者：zhangxutong
  * 邮箱：mcxtzhang@163.com
  * 主页：http://blog.csdn.net/zxt0601

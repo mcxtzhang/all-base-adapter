@@ -12,6 +12,9 @@ import java.util.List;
  * 介绍：一个简化的Adapter
  * 只支持单种Item
  * 用LayoutId 构建View
+ * <p>
+ * 使用时，一般将数据结构的泛型传入，配合构造函数传入的ItemLayoutId使用.
+ * <p>
  * 作者：zhangxutong
  * 邮箱：mcxtzhang@163.com
  * 主页：http://blog.csdn.net/zxt0601
