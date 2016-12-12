@@ -8,7 +8,7 @@ Some base Adapters apply to any ViewGroup. Such as LinearLayout, ScrollView, and
 Related posts:
 
 相关博文：
-http://blog.csdn.net/zxt0601/article/details/52303781
+https://gold.xitu.io/post/584d52fdb123db00661c59fa
 
 If you like, point a star .Thank you very much!
 
@@ -171,6 +171,7 @@ public class MulBean2 implements IMulTypeHelper {
 
 Item1布局是一个ImageView，Item2布局是一个TextView 
 效果：
+
 ![这次用横向展示 多种Item，数据结构不同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype2.gif)
 
 ### Item点击事件
@@ -215,7 +216,7 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
 
 
 ## About
-![](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.gif)
+![](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.png)
 
 
 ## to do list
