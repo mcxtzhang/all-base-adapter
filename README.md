@@ -99,7 +99,7 @@ Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一
 ```
 效果：
 
-![margin等属性都是正常显示的](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/single.gif)
+![margin等属性都是正常显示的](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/single.png)
 
 
 ### 多种Item类型：
