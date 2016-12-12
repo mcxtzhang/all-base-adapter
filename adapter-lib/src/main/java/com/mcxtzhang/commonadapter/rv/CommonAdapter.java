@@ -32,7 +32,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         return mOnItemClickListener;
     }
 
-    public CommonAdapter(Context context, int layoutId, List<T> datas) {
+    public CommonAdapter(Context context, List<T> datas, int layoutId) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
         mLayoutId = layoutId;

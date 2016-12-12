@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
+import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.multype.MulTypeActivity;
 import mcxtzhang.commonviewgroupadapter.multype.mulbean.MulTypeMulBeanActivity;
+import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
 import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
 import mcxtzhang.commonviewgroupadapter.flowswipe.FlowSwipeActivity;
 
@@ -50,6 +52,20 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, FlowSwipeActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnRvSingle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, RvSingleActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnLvSingle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, ListViewSingleActivity.class));
             }
         });
 

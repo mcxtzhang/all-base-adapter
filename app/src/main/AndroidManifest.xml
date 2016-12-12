@@ -27,6 +27,10 @@
         </activity>
         <activity android:name=".flowswipe.FlowSwipeActivity">
         </activity>
+        <activity android:name=".rv.RvSingleActivity">
+        </activity>
+        <activity android:name=".lvgv.ListViewSingleActivity">
+        </activity>
     </application>
 
 </manifest>

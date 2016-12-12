@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.listgrid;
+package com.mcxtzhang.commonadapter.lvgv;
 
 import android.content.Context;
 import android.view.LayoutInflater;
