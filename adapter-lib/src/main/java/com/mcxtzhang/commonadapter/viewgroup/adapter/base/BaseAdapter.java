@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.adapter.base;
+package com.mcxtzhang.commonadapter.viewgroup.adapter.base;
 
 import android.content.Context;
 import android.view.LayoutInflater;

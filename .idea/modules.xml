@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CommonViewGroupAdapter.iml" filepath="$PROJECT_DIR$/CommonViewGroupAdapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/adapter-lib/adapter-lib.iml" filepath="$PROJECT_DIR$/adapter-lib/adapter-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/adapter-lib/adapter-lib.iml" filepath="$PROJECT_DIR$/adapter-lib/adapter-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/all-base-adapter.iml" filepath="$PROJECT_DIR$/all-base-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/all-base-adapter.iml" filepath="$PROJECT_DIR$/all-base-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonadapter/commonadapter.iml" filepath="$PROJECT_DIR$/commonadapter/commonadapter.iml" />
     </modules>

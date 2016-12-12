@@ -10,9 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.ViewGroupUtils;
-import com.mcxtzhang.commonadapter.adapter.mul.MulTypeAdapter;
-import com.mcxtzhang.commonadapter.listener.OnItemClickListener;
+import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.MulTypeAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

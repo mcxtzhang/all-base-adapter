@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.ViewGroupUtils;
-import com.mcxtzhang.commonadapter.adapter.single.SingleAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

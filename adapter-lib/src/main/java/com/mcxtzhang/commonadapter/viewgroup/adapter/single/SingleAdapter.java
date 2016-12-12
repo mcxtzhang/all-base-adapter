@@ -1,10 +1,10 @@
-package com.mcxtzhang.commonadapter.adapter.single;
+package com.mcxtzhang.commonadapter.viewgroup.adapter.single;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mcxtzhang.commonadapter.adapter.base.BaseAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.base.BaseAdapter;
 
 import java.util.List;
 

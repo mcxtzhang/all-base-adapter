@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.listener;
+package com.mcxtzhang.commonadapter.viewgroup.listener;
 
 import android.view.View;
 import android.view.ViewGroup;

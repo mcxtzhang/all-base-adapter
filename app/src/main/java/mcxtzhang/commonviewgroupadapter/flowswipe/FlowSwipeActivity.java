@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mcxtzhang.commonadapter.ViewGroupUtils;
-import com.mcxtzhang.commonadapter.adapter.base.IViewGroupAdapter;
-import com.mcxtzhang.commonadapter.adapter.single.SingleAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.base.IViewGroupAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

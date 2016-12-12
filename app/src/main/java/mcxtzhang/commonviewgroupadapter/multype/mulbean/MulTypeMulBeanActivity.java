@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.ViewGroupUtils;
-import com.mcxtzhang.commonadapter.adapter.mul.IMulTypeHelper;
-import com.mcxtzhang.commonadapter.adapter.mul.MulTypeAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.IMulTypeHelper;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.MulTypeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

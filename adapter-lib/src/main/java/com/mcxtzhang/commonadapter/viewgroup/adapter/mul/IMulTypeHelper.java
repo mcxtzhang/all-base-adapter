@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.adapter.mul;
+package com.mcxtzhang.commonadapter.viewgroup.adapter.mul;
 
 /**
  * 介绍：多种ItemViewType的 Helper

@@ -15,10 +15,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mcxtzhang.commonadapter.ViewGroupUtils;
-import com.mcxtzhang.commonadapter.adapter.base.BaseAdapter;
-import com.mcxtzhang.commonadapter.listener.OnItemClickListener;
-import com.mcxtzhang.commonadapter.listener.OnItemLongClickListener;
+import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.base.BaseAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
+import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemLongClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
