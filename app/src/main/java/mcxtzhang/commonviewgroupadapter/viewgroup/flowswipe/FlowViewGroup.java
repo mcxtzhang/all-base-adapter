@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.flowswipe;
+package mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe;
 
 import android.content.Context;
 import android.util.AttributeSet;

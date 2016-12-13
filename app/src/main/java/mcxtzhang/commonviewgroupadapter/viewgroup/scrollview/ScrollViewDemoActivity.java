@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.scrollview;
+package mcxtzhang.commonviewgroupadapter.viewgroup.scrollview;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

@@ -17,19 +17,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".scrollview.ScrollViewDemoActivity">
+        <activity android:name=".viewgroup.scrollview.ScrollViewDemoActivity">
         </activity>
-        <activity android:name=".linearlayout.LinearLayoutActivity">
+        <activity android:name=".viewgroup.linearlayout.LinearLayoutActivity">
         </activity>
-        <activity android:name=".multype.MulTypeActivity">
+        <activity android:name=".viewgroup.multype.MulTypeActivity">
         </activity>
-        <activity android:name=".multype.mulbean.MulTypeMulBeanActivity">
+        <activity android:name=".viewgroup.multype.mulbean.MulTypeMulBeanActivity">
         </activity>
-        <activity android:name=".flowswipe.FlowSwipeActivity">
+        <activity android:name=".viewgroup.flowswipe.FlowSwipeActivity">
         </activity>
         <activity android:name=".rv.RvSingleActivity">
         </activity>
         <activity android:name=".lvgv.ListViewSingleActivity">
+        </activity>
+        <activity android:name=".rv.databinding.DBSingleActivity">
         </activity>
     </application>
 

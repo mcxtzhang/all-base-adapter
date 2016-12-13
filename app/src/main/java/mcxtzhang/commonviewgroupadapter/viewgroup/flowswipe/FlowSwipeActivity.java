@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.flowswipe;
+package mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

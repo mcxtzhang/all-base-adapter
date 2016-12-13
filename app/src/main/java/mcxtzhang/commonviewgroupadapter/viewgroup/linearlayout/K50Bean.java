@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.linearlayout;
+package mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout;
 
 /**
  * 介绍：50K特供bean

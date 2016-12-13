@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.linearlayout;
+package mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.multype.mulbean;
+package mcxtzhang.commonviewgroupadapter.viewgroup.multype.mulbean;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

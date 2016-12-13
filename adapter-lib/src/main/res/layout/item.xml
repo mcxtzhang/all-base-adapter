@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <!--数据-->
+        <variable
+            name="data"
+            type="java.lang.Class"/>
+        <!--事件处理，例如点击事件-->
+        <variable
+            name="itemP"
+            type="java.lang.Class"/>
+    </data>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</layout>
+

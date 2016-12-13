@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.scrollview;
+package mcxtzhang.commonviewgroupadapter.viewgroup.scrollview;
 
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.IMulTypeHelper;
 import mcxtzhang.commonviewgroupadapter.R;

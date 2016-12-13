@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.multype.mulbean;
+package mcxtzhang.commonviewgroupadapter.viewgroup.multype.mulbean;
 
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.IMulTypeHelper;
 import mcxtzhang.commonviewgroupadapter.R;

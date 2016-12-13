@@ -74,4 +74,10 @@
         android:background="#879fdf"
         android:text="以下是DataBinding区域"/>
 
+    <Button
+        android:id="@+id/btnDBSingle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单Item"/>
+
 </LinearLayout>

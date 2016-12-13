@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import mcxtzhang.commonviewgroupadapter.linearlayout.LinearLayoutActivity;
+import mcxtzhang.commonviewgroupadapter.rv.databinding.DBSingleActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
-import mcxtzhang.commonviewgroupadapter.multype.MulTypeActivity;
-import mcxtzhang.commonviewgroupadapter.multype.mulbean.MulTypeMulBeanActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.multype.mulbean.MulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
-import mcxtzhang.commonviewgroupadapter.scrollview.ScrollViewDemoActivity;
-import mcxtzhang.commonviewgroupadapter.flowswipe.FlowSwipeActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.scrollview.ScrollViewDemoActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowSwipeActivity;
 
 public class LauncherActivity extends AppCompatActivity {
 
@@ -66,6 +67,12 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, ListViewSingleActivity.class));
+            }
+        });
+        findViewById(R.id.btnDBSingle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, DBSingleActivity.class));
             }
         });
 
