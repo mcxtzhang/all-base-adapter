@@ -13,7 +13,10 @@ Some base Adapters apply to any ViewGroup. Such as LinearLayout, ScrollView, and
 Related posts:
 
 相关博文：
-https://gold.xitu.io/post/584d52fdb123db00661c59fa
+[ViewGroup 篇 封装博文]
+
+[DataBinding 篇 封装博文]
+
 
 If you like, point a star .Thank you very much!
 
@@ -110,3 +113,6 @@ Step 3.
 * 整合DataBinding 的通用Adapter入库。
 * 整合 RecyclerView、ListView的通用Adapter入库。
 * 加入一些自定义ViewGroup入库，例如流式布局，九宫格，Banner轮播图。
+
+[ViewGroup 篇 封装博文]:https://gold.xitu.io/post/584d52fdb123db00661c59fa
+[DataBinding 篇 封装博文]:https://gold.xitu.io/post/584fbdbe128fe1006c988d55
