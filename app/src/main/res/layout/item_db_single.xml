@@ -6,16 +6,20 @@
     <data>
 
         <variable
+            name="itemP"
+            type="mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity.SingleItemPresenter"/>
+
+        <variable
             name="data"
-            type="mcxtzhang.commonviewgroupadapter.rv.databinding.DBSingleBean"/>
+            type="mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleBean"/>
     </data>
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
         android:background="@color/colorAccent"
+        android:onClick="@{v->itemP.onItemClick(data)}"
         android:orientation="horizontal">
 
         <ImageView

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import mcxtzhang.commonviewgroupadapter.rv.databinding.DBSingleActivity;
+import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeActivity;

@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.rv.databinding.mul;
+package com.mcxtzhang.commonadapter.databinding.rv.mul;
 
 /**
  * 介绍：多种类型viewType的ViewModel需要实现的接口

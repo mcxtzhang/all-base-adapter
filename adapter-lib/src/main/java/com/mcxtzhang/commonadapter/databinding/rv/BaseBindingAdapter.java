@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.rv.databinding;
+package com.mcxtzhang.commonadapter.databinding.rv;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 介绍：普通Adapter
  * 泛型D:是Bean类型，如果有就传。
- * 泛型B:是对应的xml Layout的Bingding类
+ * 泛型B:是对应的xml Layout的Binding类
  * 作者：zhangxutong
  * 邮箱：mcxtzhang@163.com
  * 主页：http://blog.csdn.net/zxt0601
@@ -116,16 +116,51 @@ public class BaseBindingAdapter<D, B extends ViewDataBinding> extends RecyclerVi
     }
 
     /**
-     * 删除数据
+     * 删除一条数据
+     * 会自动定向刷新
      *
      * @param i
      */
     public void remove(int i) {
         if (null != mDatas && mDatas.size() > i && i > -1) {
             mDatas.remove(i);
-            notifyDataSetChanged();
+            notifyItemRemoved(i);
         }
     }
+
+    /**
+     * 添加一条数据 至队尾
+     * 会自动定向刷新
+     *
+     * @param data
+     */
+    public void add(D data) {
+        if (data != null && mDatas != null) {
+            mDatas.add(data);
+            notifyItemInserted(mDatas.size());
+        }
+    }
+
+    /**
+     * 在指定位置添加一条数据
+     * 会自动定向刷新
+     * <p>
+     * 如果指定位置越界，则添加在队尾
+     *
+     * @param position
+     * @param data
+     */
+    public void add(int position, D data) {
+        if (data != null && mDatas != null) {
+            if (mDatas.size() > position && position > -1) {
+                mDatas.add(position, data);
+                notifyItemInserted(position);
+            } else {
+                add(data);
+            }
+        }
+    }
+
 
     /**
      * 加载更多数据

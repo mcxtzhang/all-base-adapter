@@ -31,7 +31,9 @@
         </activity>
         <activity android:name=".lvgv.ListViewSingleActivity">
         </activity>
-        <activity android:name=".rv.databinding.DBSingleActivity">
+        <activity android:name=".databinding.rv.single.DBSingleActivity">
+        </activity>
+        <activity android:name=".databinding.rv.multype.DBMultypeItemActivity">
         </activity>
     </application>
 

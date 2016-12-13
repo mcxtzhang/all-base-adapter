@@ -1,4 +1,4 @@
-package mcxtzhang.commonviewgroupadapter.rv.databinding;
+package mcxtzhang.commonviewgroupadapter.databinding;
 
 import android.databinding.BindingAdapter;
 import android.widget.ImageView;

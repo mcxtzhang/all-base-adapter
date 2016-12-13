@@ -1,12 +1,12 @@
-package com.mcxtzhang.commonadapter.rv.databinding.mul;
+package com.mcxtzhang.commonadapter.databinding.rv.mul;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.view.ViewGroup;
 
-import com.mcxtzhang.commonadapter.rv.databinding.BaseBindingAdapter;
-import com.mcxtzhang.commonadapter.rv.databinding.BaseBindingVH;
+import com.mcxtzhang.commonadapter.databinding.rv.BaseBindingAdapter;
+import com.mcxtzhang.commonadapter.databinding.rv.BaseBindingVH;
 
 import java.util.List;
 

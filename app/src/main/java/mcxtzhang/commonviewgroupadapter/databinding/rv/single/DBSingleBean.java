@@ -1,7 +1,10 @@
-package mcxtzhang.commonviewgroupadapter.rv.databinding;
+package mcxtzhang.commonviewgroupadapter.databinding.rv.single;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+
+import mcxtzhang.commonviewgroupadapter.BR;
+
 
 /**
  * 介绍：
@@ -27,6 +30,7 @@ public class DBSingleBean extends BaseObservable {
 
     public DBSingleBean setAvatar(String avatar) {
         this.avatar = avatar;
+        notifyPropertyChanged(BR.avatar);
         return this;
     }
 
@@ -37,6 +41,7 @@ public class DBSingleBean extends BaseObservable {
 
     public DBSingleBean setName(String name) {
         this.name = name;
+        notifyPropertyChanged(BR.name);
         return this;
     }
 }
