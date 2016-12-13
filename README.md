@@ -1,6 +1,9 @@
 # all-base-adapter
 [![](https://jitpack.io/v/mcxtzhang/all-base-adapter.svg)](https://jitpack.io/#mcxtzhang/all-base-adapter)
 
+## Adapter 终结者
+**Adapter终结者，包含DataBinding，任意ViewGroup，Rv、Lv列表。写Adapter，有它就够了**
+
 Some base Adapters apply to any ViewGroup. Such as LinearLayout, ScrollView, and custom ViewGroups. Of course, including RecyclerView, ListView ..
 
 一些Base Adapter,适用于任意ViewGroup。像LinearLayout，ScrollView以及自定义的ViewGroup。当然也包括RecyclerView，ListView..
@@ -82,7 +85,10 @@ Step 2. Add the dependency
 
 Step 3.
 
-## 使用预览
+[DataBinding相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-DataBinding.md)
+
+
+## 普通ViewGroup：
 ### 单一Item类型：
 Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一句代码**搞定：
 ```
@@ -220,8 +226,8 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
 
 ## Update log
 2016 12 13 V1.1.0:
-1 加入DataBinding的BaseAdapter
-2 加入RecyclerView、ListView BaseAdapter初版。
+* 加入DataBinding的BaseAdapter
+* 加入RecyclerView、ListView BaseAdapter初版。
 
 
 ## to do list
