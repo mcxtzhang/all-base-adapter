@@ -219,3 +219,26 @@ public class MulTypeMulBean2 extends BaseObservable implements IBaseMulInterface
             }
         };
 ```
+
+### 4 不能忘了上文的ViewGroup呀
+
+对上文封装的ViewGroup类型Adapter也提供DataBinding的支持。
+
+#### 效果如图：
+
+当然还是流式布局搭配[史上集成最叼侧滑菜单控件]。
+
+![](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/DataBinding/flowSwipe.gif)
+
+#### 用法：
+
+和上文[快速开发偷懒必备（一）]一样，只是Adapter换成`SingleBindingAdapter`
+
+```
+    mAdapter = new SingleBindingAdapter<>(this, mDatas = iniDatas(), R.layout.item_db_flow_swipe);
+```
+如果需要设置点击事件：
+
+```
+    mAdapter.setItemPresenter(new ItemDelPresenter());
+```

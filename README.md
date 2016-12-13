@@ -57,6 +57,8 @@ http://www.jianshu.com/users/8e91ff99b072/timeline
 
 # 效果一览：
 
+![APP首页常见](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/DataBinding/multypemulbean.gif)
+
 ![多种Item，数据结构相同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype1.gif)
 
 ![这次用横向展示 多种Item，数据结构不同。](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/multype2.gif)

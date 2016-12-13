@@ -37,6 +37,8 @@
         </activity>
         <activity android:name=".databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity">
         </activity>
+        <activity android:name=".databinding.viewgroup.DBFlowSwipeActivity">
+        </activity>
     </application>
 
 </manifest>

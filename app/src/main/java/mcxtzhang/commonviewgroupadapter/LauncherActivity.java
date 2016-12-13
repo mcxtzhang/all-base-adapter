@@ -8,6 +8,7 @@ import android.view.View;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.DBMultypeSingleItemActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
+import mcxtzhang.commonviewgroupadapter.databinding.viewgroup.DBFlowSwipeActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeActivity;
@@ -88,6 +89,12 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, DBMulTypeMulBeanActivity.class));
+            }
+        });
+        findViewById(R.id.btnDBFlowSwipe).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, DBFlowSwipeActivity.class));
             }
         });
 

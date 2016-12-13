@@ -23,7 +23,7 @@ import java.util.List;
 
 public abstract class SingleAdapter<T> extends BaseAdapter<T> {
 
-    private int mItemLayoutId;
+    protected int mItemLayoutId;
 
     public SingleAdapter(Context context, List<T> datas, int itemLayoutId) {
         super(context, datas);

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="kotlin-runtime-1.0.0">
-    <CLASSES>
-      <root url="jar://$APPLICATION_HOME_DIR$/gradle/m2repository/org/jetbrains/kotlin/kotlin-runtime/1.0.0/kotlin-runtime-1.0.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
