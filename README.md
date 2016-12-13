@@ -83,7 +83,7 @@ Step 1. 在项目根build.gradle文件中增加JitPack仓库依赖。
 Step 2. Add the dependency
 ```
     dependencies {
-	        compile 'com.github.mcxtzhang:all-base-adapter:V1.1.0'
+	        ompile 'com.github.mcxtzhang:all-base-adapter:V1.3.0'
 	}
 ```
 
