@@ -1,88 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_launcher"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="mcxtzhang.commonviewgroupadapter.LauncherActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnLinearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Linear 线性Demo"/>
-
-    <Button
-        android:id="@+id/btnScrollView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ScrollView Demo"/>
-
-
-    <Button
-        android:id="@+id/btnMulType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="多种Type 同种数据结构 Demo"/>
-
-    <Button
-        android:id="@+id/btnMulTypeMulBean"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="多种Type 不同数据结构 Demo"/>
-
-    <Button
-        android:id="@+id/btnFlowSwipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="酷炫：流式布局+侧滑菜单"/>
-
-    <TextView
+    <LinearLayout
+        android:id="@+id/activity_launcher"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#879fdf"
-        android:text="以下是RecyclerView区域"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="mcxtzhang.commonviewgroupadapter.LauncherActivity">
 
-    <Button
-        android:id="@+id/btnRvSingle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rv单Item"/>
+        <Button
+            android:id="@+id/btnLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Linear 线性Demo"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#879fdf"
-        android:text="以下是ListView ,GridView区域"/>
-
-    <Button
-        android:id="@+id/btnLvSingle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lv单Item"/>
+        <Button
+            android:id="@+id/btnScrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ScrollView Demo"/>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#879fdf"
-        android:text="以下是DataBinding区域"/>
+        <Button
+            android:id="@+id/btnMulType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多种Type 同种数据结构 Demo"/>
 
-    <Button
-        android:id="@+id/btnDBSingle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="单Item"/>
+        <Button
+            android:id="@+id/btnMulTypeMulBean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多种Type 不同数据结构 Demo"/>
 
-    <Button
-        android:id="@+id/btnDBMulTypeSingleBean"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="多Item同JavaBean"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/btnFlowSwipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="酷炫：流式布局+侧滑菜单"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#879fdf"
+            android:text="以下是RecyclerView区域"/>
+
+        <Button
+            android:id="@+id/btnRvSingle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rv单Item"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#879fdf"
+            android:text="以下是ListView ,GridView区域"/>
+
+        <Button
+            android:id="@+id/btnLvSingle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lv单Item"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#879fdf"
+            android:text="以下是DataBinding区域"/>
+
+        <Button
+            android:id="@+id/btnDBSingle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单Item"/>
+
+        <Button
+            android:id="@+id/btnDBMulTypeSingleBean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多Item同JavaBean"/>
+        <Button
+            android:id="@+id/btnDBMulTypeMulBean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="多Item多JavaBean"/>
+    </LinearLayout>
+</ScrollView>
+

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.DBMultypeSingleItemActivity;
+import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
@@ -80,6 +81,13 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, DBMultypeSingleItemActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnDBMulTypeMulBean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, DBMulTypeMulBeanActivity.class));
             }
         });
 

@@ -28,7 +28,6 @@
             android:text="第1种："/>
 
         <TextView
-            android:id="@+id/tvWords"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{v->itemP.onTvClick(data.name)}"
@@ -36,7 +35,6 @@
             tools:text="测试多种"/>
 
         <ImageView
-            android:id="@+id/ivAvatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:netUrl="@{data.avatar}"
