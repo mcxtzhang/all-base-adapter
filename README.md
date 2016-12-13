@@ -76,7 +76,7 @@ Step 1. 在项目根build.gradle文件中增加JitPack仓库依赖。
 Step 2. Add the dependency
 ```
     dependencies {
-	        compile 'com.github.mcxtzhang:all-base-adapter:V1.0.0'
+	        compile 'com.github.mcxtzhang:all-base-adapter:V1.1.0'
 	}
 ```
 
@@ -217,6 +217,11 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
 
 ## About
 ![](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.png)
+
+## Update log
+2016 12 13 V1.1.0:
+1 加入DataBinding的BaseAdapter
+2 加入RecyclerView、ListView BaseAdapter初版。
 
 
 ## to do list
