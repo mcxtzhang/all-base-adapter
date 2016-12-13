@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.mcxtzhang.commonadapter.databinding.rv.BaseBindingAdapter;
+import com.mcxtzhang.commonadapter.databinding.rv.BaseBindingVH;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +31,17 @@ public class DBSingleActivity extends AppCompatActivity {
         mBinding.rv.setLayoutManager(new LinearLayoutManager(this));
 
 
-        // ★* 泛型D:是Bean类型，如果有就传。  * 泛型B:是对应的xml Layout的Binding类
-        mAdapter = new BaseBindingAdapter<DBSingleBean, ItemDbSingleBinding>(
-                this, mDatas, R.layout.item_db_single);
+        // ★泛型D:是Bean类型，如果有就传。  泛型B:是对应的xml Layout的Binding类
+        mAdapter = new BaseBindingAdapter<DBSingleBean, ItemDbSingleBinding>(this, mDatas, R.layout.item_db_single) {
+            @Override
+            public void onBindViewHolder(BaseBindingVH<ItemDbSingleBinding> holder, int position) {
+                //★super一定不要删除
+                super.onBindViewHolder(holder, position);
+                //如果有特殊需求，可传入两个泛型，重写onBindViewHolder搞事情。
+                ItemDbSingleBinding binding = holder.getBinding();
+                DBSingleBean data = mDatas.get(position);
+            }
+        };
 
         //★ 设置Item点击事件
         mAdapter.setItemPresenter(new SingleItemPresenter());

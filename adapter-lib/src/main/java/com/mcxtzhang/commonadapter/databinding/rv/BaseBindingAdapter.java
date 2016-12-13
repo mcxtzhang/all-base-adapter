@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * 介绍：普通Adapter
+ * 泛型没有特殊需求可以不传
  * 泛型D:是Bean类型，如果有就传。
  * 泛型B:是对应的xml Layout的Binding类
  * 作者：zhangxutong
