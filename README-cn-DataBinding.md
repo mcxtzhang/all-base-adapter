@@ -48,7 +48,7 @@
 #### 效果如图：
 
 顺带演示了BaseBindingAdapter封装的一些增删功能。
-![单Item](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/DataBinding/singleitem.gif)
+![单Item](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/DataBinding/singitem.gif)
 
 #### 用法：
 
