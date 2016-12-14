@@ -227,7 +227,7 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
         if (mHeaderDatas != null && !mHeaderDatas.isEmpty()) {//不为空，说明有headerview
             for (HeaderData headerData : mHeaderDatas) {
                 if (headerData.getLayoutId() == viewType) {//匹配上了说明是headerView
-                    return ViewHolder.get(parent.getContext(), null, parent, viewType);
+                    return ViewHolder.get(parent.getContext(), parent, viewType);
                 }
             }
         }

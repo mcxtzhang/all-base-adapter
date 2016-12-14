@@ -9,6 +9,7 @@ import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.DBMultypeSingleIt
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.viewgroup.DBFlowSwipeActivity;
+import mcxtzhang.commonviewgroupadapter.rv.mul.RvMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeActivity;
@@ -59,12 +60,24 @@ public class LauncherActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         findViewById(R.id.btnRvSingle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, RvSingleActivity.class));
             }
         });
+
+        findViewById(R.id.btnRvMulTypeMulBean).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, RvMulTypeMulBeanActivity.class));
+            }
+        });
+
+
 
         findViewById(R.id.btnLvSingle).setOnClickListener(new View.OnClickListener() {
             @Override

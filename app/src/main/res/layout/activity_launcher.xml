@@ -58,6 +58,12 @@
             android:layout_height="wrap_content"
             android:text="Rv单Item"/>
 
+        <Button
+            android:id="@+id/btnRvMulTypeMulBean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rv多种Type不同数据结构"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
