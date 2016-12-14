@@ -94,6 +94,7 @@
 ```
 
 ### 2 多Item同种数据类型列表
+一般是像IM那种列表，虽然Item不同，但是数据结构是同一个。用法，**一句话**~
 #### 效果如图：
 
 ![多Item同数据结构](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/DataBinding/multypesinglebean.gif)
@@ -157,6 +158,8 @@ public class MulTypeSingleBean extends BaseObservable implements IBaseMulInterfa
 ```
 
 ### 3 多Item、多种数据类型列表
+各大APP首页，Banner、列表、推荐混排，数据结构肯定不同，但是依然只要**一句代码**搞定Adapter！
+
 #### 效果如图：
 
 ![多Item、多数据结构](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/DataBinding/multypemulbean.gif)

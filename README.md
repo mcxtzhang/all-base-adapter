@@ -99,7 +99,7 @@ Step 3.
 
 
 ## About
-![](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.png)
+![ViewGroup](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.png)
 
 ## Update log
 2016 12 13 V1.1.0:
