@@ -41,6 +41,8 @@
         </activity>
         <activity android:name=".rv.mul.RvMulTypeMulBeanActivity">
         </activity>
+        <activity android:name=".viewgroup.fakergrid.FakerGridViewActivity">
+        </activity>
     </application>
 
 </manifest>

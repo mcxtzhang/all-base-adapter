@@ -15,6 +15,12 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="mcxtzhang.commonviewgroupadapter.LauncherActivity">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#879fdf"
+            android:text="以下是ViewGroup区域"/>
+
         <Button
             android:id="@+id/btnLinearLayout"
             android:layout_width="wrap_content"
@@ -45,6 +51,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="酷炫：流式布局+侧滑菜单"/>
+
+        <Button
+            android:id="@+id/btnFakerGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="嵌套替代用GridView"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -94,6 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="多Item同JavaBean"/>
+
         <Button
             android:id="@+id/btnDBMulTypeMulBean"
             android:layout_width="wrap_content"

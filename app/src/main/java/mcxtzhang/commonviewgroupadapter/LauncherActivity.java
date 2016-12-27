@@ -1,22 +1,23 @@
 package mcxtzhang.commonviewgroupadapter;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.DBMultypeSingleItemActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.viewgroup.DBFlowSwipeActivity;
-import mcxtzhang.commonviewgroupadapter.rv.mul.RvMulTypeMulBeanActivity;
-import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
+import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
+import mcxtzhang.commonviewgroupadapter.rv.mul.RvMulTypeMulBeanActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.fakergrid.FakerGridViewActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowSwipeActivity;
+import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.mulbean.MulTypeMulBeanActivity;
-import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.scrollview.ScrollViewDemoActivity;
-import mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowSwipeActivity;
 
 public class LauncherActivity extends AppCompatActivity {
 
@@ -61,8 +62,6 @@ public class LauncherActivity extends AppCompatActivity {
         });
 
 
-
-
         findViewById(R.id.btnRvSingle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +75,6 @@ public class LauncherActivity extends AppCompatActivity {
                 startActivity(new Intent(LauncherActivity.this, RvMulTypeMulBeanActivity.class));
             }
         });
-
 
 
         findViewById(R.id.btnLvSingle).setOnClickListener(new View.OnClickListener() {
@@ -108,6 +106,13 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, DBFlowSwipeActivity.class));
+            }
+        });
+
+        findViewById(R.id.btnFakerGrid).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, FakerGridViewActivity.class));
             }
         });
 

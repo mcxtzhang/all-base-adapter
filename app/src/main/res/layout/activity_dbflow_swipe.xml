@@ -6,7 +6,7 @@
 
     </data>
 
-    <mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowViewGroup
+    <com.mcxtzhang.commonadapter.viewgroup.widget.FlowViewGroup
         android:id="@+id/flowLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +16,6 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context=".viewgroup.flowswipe.FlowSwipeActivity">
 
-    </mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowViewGroup>
+    </com.mcxtzhang.commonadapter.viewgroup.widget.FlowViewGroup>
 </layout>
 
