@@ -3,8 +3,11 @@ package com.mcxtzhang.commonadapter.viewgroup;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mcxtzhang.commonadapter.R;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.base.IViewGroupAdapter;
-import com.mcxtzhang.commonadapter.viewgroup.listener.*;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
+import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
+import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemLongClickListener;
 
 /**
  * 介绍：ViewGroupUtils
@@ -60,8 +63,13 @@ public class ViewGroupUtils {
             return;
         }
         //如果需要remove掉之前的Views
-        if (removeViews && viewGroup.getChildCount() > 0) {
-            viewGroup.removeAllViews();
+        int childCount = viewGroup.getChildCount();
+        if (removeViews && childCount > 0) {
+            //viewGroup.removeAllViews();
+            for (int count = childCount - 1; count >= 0; count--) {
+                adapter.recycleView(viewGroup, (ViewHolder) viewGroup.getChildAt(count).getTag(R.id.zxt_tag_vh));
+            }
+
         }
         //开始添加子Views,通过Adapter获得需要添加的Count
         int count = adapter.getCount();

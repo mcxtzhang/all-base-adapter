@@ -20,7 +20,7 @@ import android.view.ViewGroup;
  * 时间： 16/12/10.
  */
 
-public interface IViewGroupAdapter {
+public interface IViewGroupAdapter extends ICacheViewAdapter {
     /**
      * ViewGroup调用获取ItemView
      *

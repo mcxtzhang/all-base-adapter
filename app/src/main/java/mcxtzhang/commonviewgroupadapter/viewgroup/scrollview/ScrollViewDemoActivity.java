@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.base.BaseAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemLongClickListener;
 
@@ -52,6 +53,11 @@ public class ScrollViewDemoActivity extends AppCompatActivity {
                 animPbs = new ArrayList<ProgressBar>();
 
                 ViewGroupUtils.addViews(mLlcontainer, new BaseAdapter<VipLevelBean>(ScrollViewDemoActivity.this, mDatas = initDatas()) {
+                            @Override
+                            public void recycleView(ViewGroup parent, ViewHolder holder) {
+
+                            }
+
                             @Override
                             public View getView(ViewGroup parent, int pos, VipLevelBean data) {
                                 View itemView;

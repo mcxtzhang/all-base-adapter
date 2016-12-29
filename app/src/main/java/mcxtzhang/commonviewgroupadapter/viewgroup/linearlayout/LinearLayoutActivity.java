@@ -37,13 +37,18 @@ public class LinearLayoutActivity extends AppCompatActivity {
         llRecent = (LinearLayout) findViewById(R.id.llRecent);
         mDatas = initDatas();
 
-        //单一ItemView
-        ViewGroupUtils.addViews(llCurrent, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
+
+
+        final SingleAdapter adapter1 = new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
             @Override
             public void onBindView(ViewGroup parent, View itemView, K50Bean data, int pos) {
                 ((TextView) itemView.findViewById(R.id.tv)).setText(data.getName());
             }
-        });
+        };
+
+        //单一ItemView
+        ViewGroupUtils.addViews(llCurrent, adapter1);
+
 
         ViewGroupUtils.addViews(llUseMore, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
             @Override
@@ -56,6 +61,20 @@ public class LinearLayoutActivity extends AppCompatActivity {
             @Override
             public void onBindView(ViewGroup parent, View itemView, K50Bean data, int pos) {
                 ((TextView) itemView.findViewById(R.id.tv)).setText(data.getName());
+            }
+        });
+
+
+
+        findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (K50Bean data : mDatas) {
+                    data.setName("替换了");
+                }
+
+                //单一ItemView
+                ViewGroupUtils.addViews(llCurrent, adapter1);
             }
         });
 
