@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mcxtzhang.commonadapter.databinding.rv.BaseBindingAdapter;
 import com.mcxtzhang.commonadapter.databinding.rv.BaseBindingVH;
@@ -40,6 +41,7 @@ public class DBSingleActivity extends AppCompatActivity {
                 //如果有特殊需求，可传入两个泛型，重写onBindViewHolder搞事情。
                 ItemDbSingleBinding binding = holder.getBinding();
                 DBSingleBean data = mDatas.get(position);
+                holder.getBinding().setPosition(holder.getLayoutPosition());
             }
         };
 
@@ -53,8 +55,9 @@ public class DBSingleActivity extends AppCompatActivity {
      * ★ Item点击事件P
      */
     public class SingleItemPresenter {
-        public void onItemClick(DBSingleBean data) {
+        public void onItemClick(DBSingleBean data, int position) {
             data.setName("修改之后立刻见效");
+            Toast.makeText(DBSingleActivity.this, "postion:" + position, Toast.LENGTH_SHORT).show();
         }
     }
 

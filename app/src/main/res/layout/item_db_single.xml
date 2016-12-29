@@ -12,6 +12,10 @@
         <variable
             name="data"
             type="mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleBean"/>
+
+        <variable
+            name="position"
+            type="java.lang.Integer"/>
     </data>
 
     <LinearLayout
@@ -19,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
         android:background="@color/colorAccent"
-        android:onClick="@{v->itemP.onItemClick(data)}"
+        android:onClick="@{v->itemP.onItemClick(data,position)}"
         android:orientation="horizontal">
 
         <ImageView
