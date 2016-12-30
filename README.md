@@ -111,11 +111,19 @@ Step 3.
 
 
 ## to do list
-* 考虑加入复用缓存池
-* 考虑替换`onBindView()`的`ItemView`->`通用的ViewHolder`，这样可以少写一些`findViewById()`代码
-* 整合DataBinding 的通用Adapter入库。
+* ~~考虑加入复用缓存池~~
+* ~~考虑替换`onBindView()`的`ItemView`->`通用的ViewHolder`，这样可以少写一些`findViewById()`代码~~
+* ~~整合DataBinding 的通用Adapter入库。~~
 * 整合 RecyclerView、ListView的通用Adapter入库。
 * 加入一些自定义ViewGroup入库，例如流式布局，九宫格，Banner轮播图。
+
+## 更新日志：
+版本 [V1.5.0]
+日期 [2016 12 30]
+1 加入复用缓存池，目前默认是缓存5个。类似于RecyclerViewPool。
+2 替换`onBindView()`的`ItemView`->`通用的ViewHolder`，这样可以少写一些`findViewById()`代码~
+3 加入了一些自定义ViewGroup：流式布局。 和一个 用于嵌套的FakerGridView，具体情况可见Demo。
+
 
 [ViewGroup 篇 封装博文]:https://gold.xitu.io/post/584d52fdb123db00661c59fa
 [DataBinding 篇 封装博文]:https://gold.xitu.io/post/584fbdbe128fe1006c988d55
