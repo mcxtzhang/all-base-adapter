@@ -59,6 +59,11 @@ public class ScrollViewDemoActivity extends AppCompatActivity {
                             }
 
                             @Override
+                            public void recycleViews(ViewGroup parent) {
+
+                            }
+
+                            @Override
                             public View getView(ViewGroup parent, int pos, VipLevelBean data) {
                                 View itemView;
                                 TextView tvLevel;

@@ -4,7 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mcxtzhang.commonadapter.viewgroup.adapter.base.BaseCacheAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.BaseCacheAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 
 import java.util.List;
 
@@ -23,18 +24,18 @@ public abstract class MulTypeAdapter<T extends IMulTypeHelper> extends BaseCache
 
     @Override
     public View getView(ViewGroup parent, int pos, T data) {
-        View itemView = /*mInflater.inflate(data.getItemLayoutId(), parent, false)*/getViewByType(parent, data.getItemLayoutId());
-        onBindView(parent, itemView, data, pos);
-        return itemView;
+        ViewHolder holder = /*mInflater.inflate(data.getItemLayoutId(), parent, false)*/getViewHolderByType(parent, data.getItemLayoutId());
+        onBindViewHolder(parent, holder, data, pos);
+        return holder.itemView;
     }
 
     /**
      * 暴漏这个 让外部bind数据
      *
      * @param parent
-     * @param itemView
+     * @param holder
      * @param data
      * @param pos
      */
-    public abstract void onBindView(ViewGroup parent, View itemView, T data, int pos);
+    public abstract void onBindViewHolder(ViewGroup parent, ViewHolder holder, T data, int pos);
 }

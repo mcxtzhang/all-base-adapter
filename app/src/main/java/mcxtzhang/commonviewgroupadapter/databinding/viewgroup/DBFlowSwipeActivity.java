@@ -3,9 +3,11 @@ package mcxtzhang.commonviewgroupadapter.databinding.viewgroup;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.mcxtzhang.commonadapter.databinding.viewgroup.SingleBindingAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +33,10 @@ public class DBFlowSwipeActivity extends AppCompatActivity {
     }
 
     public class ItemDelPresenter {
-        public void onDelClick(FlowBean flowBean) {
+        public void onDelClick(FlowBean flowBean, View view) {
             mDatas.remove(flowBean);
-            ViewGroupUtils.addViews(mBinding.flowLayout, mAdapter);
+            ((SwipeMenuLayout) view.getParent()).quickClose();
+            ViewGroupUtils.refreshUI(mBinding.flowLayout, mAdapter);
         }
     }
 

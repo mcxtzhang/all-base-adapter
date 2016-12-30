@@ -3,6 +3,8 @@ package com.mcxtzhang.commonadapter.viewgroup.adapter.base;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ICacheViewAdapter;
+
 /**
  * 介绍：最顶层的Adapter接口
  * 不涉及数据,

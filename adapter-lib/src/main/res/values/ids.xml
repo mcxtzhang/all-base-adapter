@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="zxt_tag_vh" type="id"></item>
+    <item name="zxt_tag_vdb" type="id"></item>
 </resources>

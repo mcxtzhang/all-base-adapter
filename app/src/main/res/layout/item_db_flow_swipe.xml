@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:background="#00ffe1"
-            android:onClick="@{v->itemP.onDelClick(data)}"
+            android:onClick="@{v->itemP.onDelClick(data,v)}"
             android:text="不感兴趣"/>
     </com.mcxtzhang.swipemenulib.SwipeMenuLayout>
 </layout>

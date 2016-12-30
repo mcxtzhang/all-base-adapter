@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.MulTypeAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
 
@@ -47,20 +47,21 @@ public class MulTypeActivity extends AppCompatActivity {
         //多种ItemViewType，但是数据结构相同，可以传入数据结构泛型，避免强转
         ViewGroupUtils.addViews(linearLayout, new MulTypeAdapter<MulTypeBean>(this, initDatas()) {
             @Override
-            public void onBindView(ViewGroup parent, View itemView, final MulTypeBean data, int pos) {
-                ((TextView) itemView.findViewById(R.id.tvWords)).setText(data.getName() + "");
+            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, final MulTypeBean data, int pos) {
+                holder.setText(R.id.tvWords, data.getName() + "");
                 Glide.with(MulTypeActivity.this)
                         .load(data.getAvatar())
-                        .into((ImageView) itemView.findViewById(ivAvatar));
+                        .into((ImageView) holder.findViewById(ivAvatar));
                 //#### Adapter.onBindView()里设置 优先级更高
-                itemView.setOnClickListener(new View.OnClickListener() {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(mContext, "onBindView里设置:文字是:" + data.getName(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
-        },onItemClickListener);
+
+        }, onItemClickListener);
         //可以在`ViewGroupUtils.addViews`直接作为参数传入.\
         // 也可以用`ViewGroupUtils.setOnItemClickListener(）`设置
         // **优先级比`Adapter.onBindView()`里设置低，**

@@ -4,7 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mcxtzhang.commonadapter.viewgroup.adapter.base.BaseCacheAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.BaseCacheAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 
 import java.util.List;
 
@@ -33,20 +34,20 @@ public abstract class SingleAdapter<T> extends BaseCacheAdapter<T> {
     @Override
     public View getView(ViewGroup parent, int pos, T data) {
         //实现getView
-        View itemView = /*onCreateView(parent, pos)*//*mInflater.inflate(mItemLayoutId, parent, false)*/ getViewByType(parent, mItemLayoutId);
-        onBindView(parent, itemView, data, pos);
-        return itemView;
+        ViewHolder holder = /*onCreateView(parent, pos)*//*mInflater.inflate(mItemLayoutId, parent, false)*/ getViewHolderByType(parent, mItemLayoutId);
+        onBindViewHolder(parent, holder, data, pos);
+        return holder.itemView;
     }
 
     /**
      * 暴漏这个 让外部bind数据
      *
      * @param parent
-     * @param itemView
+     * @param holder
      * @param data
      * @param pos
      */
-    public abstract void onBindView(ViewGroup parent, View itemView, T data, int pos);
+    public abstract void onBindViewHolder(ViewGroup parent, ViewHolder holder, T data, int pos);
 
 /*    *//**
      * 通过ItemLayoutId inflate View

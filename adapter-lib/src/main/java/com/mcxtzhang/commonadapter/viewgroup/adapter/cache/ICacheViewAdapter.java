@@ -1,8 +1,6 @@
-package com.mcxtzhang.commonadapter.viewgroup.adapter.base;
+package com.mcxtzhang.commonadapter.viewgroup.adapter.cache;
 
 import android.view.ViewGroup;
-
-import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 
 /**
  * 介绍：V1.5.0 引入 ViewCache概念
@@ -16,4 +14,6 @@ import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 
 public interface ICacheViewAdapter {
     void recycleView(ViewGroup parent, ViewHolder holder);
+
+    void recycleViews(ViewGroup parent);
 }

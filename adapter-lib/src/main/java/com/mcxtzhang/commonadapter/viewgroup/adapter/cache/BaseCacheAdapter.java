@@ -1,4 +1,4 @@
-package com.mcxtzhang.commonadapter.viewgroup.adapter.base;
+package com.mcxtzhang.commonadapter.viewgroup.adapter.cache;
 
 import android.content.Context;
 import android.util.Log;
@@ -6,9 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mcxtzhang.commonadapter.R;
-import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.IViewCache;
-import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewCacheImpl;
-import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.base.BaseAdapter;
 
 import java.util.List;
 
@@ -37,17 +35,17 @@ public abstract class BaseCacheAdapter<T> extends BaseAdapter<T> {
      * @param layoutId
      * @return
      */
-    public View getViewByType(ViewGroup parent, int layoutId) {
+    public ViewHolder getViewHolderByType(ViewGroup parent, int layoutId) {
         ViewHolder holder = mViewCache.get(layoutId);
         if (holder == null) {
             Log.d("TAG", "创建");
             View inflate = mInflater.inflate(layoutId, parent, false);
             ViewHolder holder2 = new ViewHolder(inflate, layoutId);
-            inflate.setTag(R.id.zxt_tag_vh,holder2);
-            return inflate;
+            inflate.setTag(R.id.zxt_tag_vh, holder2);
+            return holder2;
         }
         Log.d("TAG", "复用");
-        return holder.itemView;
+        return holder;
     }
 
     /**
@@ -61,5 +59,20 @@ public abstract class BaseCacheAdapter<T> extends BaseAdapter<T> {
         mViewCache.put(holder);
     }
 
-
+    /**
+     * 回收ViewGroups的所有View
+     *
+     * @param parent
+     */
+    @Override
+    public void recycleViews(ViewGroup parent) {
+        if (parent != null) {
+            int childCount = parent.getChildCount();
+            if (childCount > 0) {
+                for (int count = childCount - 1; count >= 0; count--) {
+                    recycleView(parent, (ViewHolder) parent.getChildAt(count).getTag(R.id.zxt_tag_vh));
+                }
+            }
+        }
+    }
 }

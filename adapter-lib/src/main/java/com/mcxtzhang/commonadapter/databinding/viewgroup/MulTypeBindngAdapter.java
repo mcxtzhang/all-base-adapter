@@ -1,12 +1,13 @@
 package com.mcxtzhang.commonadapter.databinding.viewgroup;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mcxtzhang.commonadapter.BR;
+import com.mcxtzhang.commonadapter.R;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.IMulTypeHelper;
 
 import java.util.List;
@@ -28,11 +29,11 @@ public class MulTypeBindngAdapter<T extends IMulTypeHelper> extends SingleBindin
     //重写利用DataBinding做
     @Override
     public View getView(ViewGroup parent, int pos, T data) {
-        ViewDataBinding binding = DataBindingUtil.inflate(mInflater, data.getItemLayoutId(), parent, false);
-        View itemView = binding.getRoot();
-        onBindView(parent, itemView, data, pos);
+        ViewHolder holder = getViewHolderByType(parent, data.getItemLayoutId());
+        ViewDataBinding binding = (ViewDataBinding) holder.itemView.getTag(R.id.zxt_tag_vdb);
+        onBindViewHolder(parent, holder, data, pos);
         binding.setVariable(BR.data, data);
         binding.setVariable(BR.itemP, ItemPresenter);
-        return itemView;
+        return holder.itemView;
     }
 }

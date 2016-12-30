@@ -3,9 +3,7 @@ package com.mcxtzhang.commonadapter.viewgroup;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mcxtzhang.commonadapter.R;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.base.IViewGroupAdapter;
-import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemLongClickListener;
 
@@ -21,6 +19,41 @@ import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemLongClickListener;
  */
 
 public class ViewGroupUtils {
+
+    /**
+     * 刷新UI
+     * 没有点击事件
+     *
+     * @param viewGroup
+     * @param adapter
+     */
+    public static void refreshUI(ViewGroup viewGroup, IViewGroupAdapter adapter) {
+        addViews(viewGroup, adapter);
+    }
+
+    /**
+     * 刷新UI ，和点击事件
+     *
+     * @param viewGroup
+     * @param adapter
+     * @param onItemClickListener
+     */
+    public static void refreshUIWithClickListener(ViewGroup viewGroup, IViewGroupAdapter adapter, OnItemClickListener onItemClickListener) {
+        addViews(viewGroup, adapter, onItemClickListener);
+    }
+
+    /**
+     * 刷新UI ，和长按事件
+     *
+     * @param viewGroup
+     * @param adapter
+     * @param onItemClickListener
+     */
+    public static void refreshUIWithLongClickListener(ViewGroup viewGroup, IViewGroupAdapter adapter
+            , OnItemClickListener onItemClickListener, OnItemLongClickListener onItemLongClickListener) {
+        addViews(viewGroup, adapter, true, onItemClickListener, onItemLongClickListener);
+    }
+
     /**
      * 为任意ViewGroup 添加ItemViews.
      * 并且会清除掉之前所有add过的View
@@ -63,13 +96,9 @@ public class ViewGroupUtils {
             return;
         }
         //如果需要remove掉之前的Views
-        int childCount = viewGroup.getChildCount();
-        if (removeViews && childCount > 0) {
+        if (removeViews) {
             //viewGroup.removeAllViews();
-            for (int count = childCount - 1; count >= 0; count--) {
-                adapter.recycleView(viewGroup, (ViewHolder) viewGroup.getChildAt(count).getTag(R.id.zxt_tag_vh));
-            }
-
+            adapter.recycleViews(viewGroup);
         }
         //开始添加子Views,通过Adapter获得需要添加的Count
         int count = adapter.getCount();

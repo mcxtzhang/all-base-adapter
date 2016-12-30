@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
 
 import java.util.ArrayList;
@@ -38,11 +38,10 @@ public class LinearLayoutActivity extends AppCompatActivity {
         mDatas = initDatas();
 
 
-
         final SingleAdapter adapter1 = new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
             @Override
-            public void onBindView(ViewGroup parent, View itemView, K50Bean data, int pos) {
-                ((TextView) itemView.findViewById(R.id.tv)).setText(data.getName());
+            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
+                holder.setText(R.id.tv, data.getName());
             }
         };
 
@@ -52,18 +51,17 @@ public class LinearLayoutActivity extends AppCompatActivity {
 
         ViewGroupUtils.addViews(llUseMore, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
             @Override
-            public void onBindView(ViewGroup parent, View itemView, K50Bean data, int pos) {
-                ((TextView) itemView.findViewById(R.id.tv)).setText(data.getName());
+            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
+                holder.setText(R.id.tv, data.getName());
             }
         });
 
         ViewGroupUtils.addViews(llRecent, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
             @Override
-            public void onBindView(ViewGroup parent, View itemView, K50Bean data, int pos) {
-                ((TextView) itemView.findViewById(R.id.tv)).setText(data.getName());
+            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
+                holder.setText(R.id.tv, data.getName());
             }
         });
-
 
 
         findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
@@ -74,7 +72,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
                 }
 
                 //单一ItemView
-                ViewGroupUtils.addViews(llCurrent, adapter1);
+                ViewGroupUtils.refreshUI(llCurrent, adapter1);
             }
         });
 

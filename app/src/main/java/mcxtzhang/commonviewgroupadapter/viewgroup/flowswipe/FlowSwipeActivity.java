@@ -9,8 +9,10 @@ import android.widget.Toast;
 
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.base.IViewGroupAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.widget.FlowViewGroup;
+import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +44,8 @@ public class FlowSwipeActivity extends AppCompatActivity {
         mFlowViewGroup = (FlowViewGroup) findViewById(R.id.flowLayout);
         mAdapter = new SingleAdapter<FlowBean>(this, mDatas = iniDatas(), R.layout.item_flow) {
             @Override
-            public void onBindView(ViewGroup parent, View itemView, final FlowBean data, int pos) {
-                TextView tv = (TextView) itemView.findViewById(R.id.tv);
+            public void onBindViewHolder(ViewGroup parent, final ViewHolder holder, final FlowBean data, int pos) {
+                TextView tv = holder.getView(R.id.tv);
                 tv.setText(data.getTag());
                 //点击事件只能在这里设置 因为ItemView是侧滑控件
                 tv.setOnClickListener(new View.OnClickListener() {
@@ -53,14 +55,17 @@ public class FlowSwipeActivity extends AppCompatActivity {
                     }
                 });
                 //侧滑菜单的事件设置
-                itemView.findViewById(R.id.btnDel).setOnClickListener(new View.OnClickListener() {
+                holder.setOnClickListener(R.id.btnDel, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         mDatas.remove(data);
-                        ViewGroupUtils.addViews(mFlowViewGroup, mAdapter);
+                        ((SwipeMenuLayout)holder.itemView).quickClose();
+                        ViewGroupUtils.refreshUI(mFlowViewGroup, mAdapter);
                     }
                 });
             }
+
+
         };
         ViewGroupUtils.addViews(mFlowViewGroup, mAdapter);
 
