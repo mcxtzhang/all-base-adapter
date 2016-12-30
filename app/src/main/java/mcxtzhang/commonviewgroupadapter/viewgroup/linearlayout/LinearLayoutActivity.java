@@ -71,7 +71,7 @@ public class LinearLayoutActivity extends AppCompatActivity {
                     data.setName("替换了");
                 }
 
-                //单一ItemView
+                //单一ItemView刷新
                 ViewGroupUtils.refreshUI(llCurrent, adapter1);
             }
         });

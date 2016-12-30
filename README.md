@@ -95,7 +95,9 @@ Step 3.
 [DataBinding相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-DataBinding.md)
 
 
-[ViewGroup相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-ViewGroup.md)
+[（推荐）ViewGroup V1.5.0版本之后 相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-ViewGroup_after_1.5.0.md)
+
+[（不推荐）ViewGroup V1.5.0版本之前 相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-ViewGroup.md)
 
 
 ## About
