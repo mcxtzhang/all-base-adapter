@@ -11,6 +11,7 @@ import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.viewgroup.DBFlowSwipeActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
+import mcxtzhang.commonviewgroupadapter.rv.header.RvHeaderFooterActivity;
 import mcxtzhang.commonviewgroupadapter.rv.mul.RvMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.fakergrid.FakerGridViewActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowSwipeActivity;
@@ -62,6 +63,7 @@ public class LauncherActivity extends AppCompatActivity {
         });
 
 
+        //rv
         findViewById(R.id.btnRvSingle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +75,12 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, RvMulTypeMulBeanActivity.class));
+            }
+        });
+        findViewById(R.id.btnRvHeaderFooter).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, RvHeaderFooterActivity.class));
             }
         });
 

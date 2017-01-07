@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * 时间： 2016/8/2.
  */
 public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private class HeaderData {
+    protected class HeaderData {
         private final int DEFAULT_HEADER_VIEW_CACHE_SIZE = 5;//默认是5 和RecyclerViewPool的默认值一样
         private int layoutId;//viewType当做layoutId
         private Object data;//该viewType(LayoutId)对应的数据
@@ -62,11 +62,11 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
 
     }
 
-    private static final int BASE_ITEM_TYPE_FOOTER = 2000000;//footerView的ViewType基准值
+    protected static final int BASE_ITEM_TYPE_FOOTER = 2000000;//footerView的ViewType基准值
 
     //存放HeaderViews的layoudID和data,key是viewType，value 是 layoudID和data，在createViewHOlder里根据layoutId创建UI,在onbindViewHOlder里依据这个data渲染UI
-    private ArrayList<HeaderData> mHeaderDatas = new ArrayList<HeaderData>();
-    private SparseArrayCompat<View> mFooterViews = new SparseArrayCompat<>();//存放FooterViews,key是viewType
+    protected ArrayList<HeaderData> mHeaderDatas = new ArrayList<HeaderData>();
+    protected SparseArrayCompat<View> mFooterViews = new SparseArrayCompat<>();//存放FooterViews,key是viewType
 
     protected RecyclerView.Adapter mInnerAdapter;//内部的的普通Adapter
 
@@ -82,7 +82,7 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
         return mFooterViews.size();
     }
 
-    private int getInnerItemCount() {
+    protected int getInnerItemCount() {
         return mInnerAdapter != null ? mInnerAdapter.getItemCount() : 0;
     }
 

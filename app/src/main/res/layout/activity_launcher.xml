@@ -76,6 +76,12 @@
             android:layout_height="wrap_content"
             android:text="Rv多种Type不同数据结构"/>
 
+        <Button
+            android:id="@+id/btnRvHeaderFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rv添加头部尾部"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

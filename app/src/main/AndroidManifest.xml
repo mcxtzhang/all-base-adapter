@@ -43,6 +43,8 @@
         </activity>
         <activity android:name=".viewgroup.fakergrid.FakerGridViewActivity">
         </activity>
+        <activity android:name=".rv.header.RvHeaderFooterActivity">
+        </activity>
     </application>
 
 </manifest>
