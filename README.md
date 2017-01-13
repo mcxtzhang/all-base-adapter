@@ -86,7 +86,7 @@ Step 1. 在项目根build.gradle文件中增加JitPack仓库依赖。
 Step 2. Add the dependency
 ```
     dependencies {
-	        compile 'com.github.mcxtzhang:all-base-adapter:V1.5.0'
+	        compile 'com.github.mcxtzhang:all-base-adapter:V1.5.2'
 	}
 ```
 
@@ -118,6 +118,10 @@ Step 3.
 * 加入一些自定义ViewGroup入库，例如流式布局，九宫格，Banner轮播图。
 
 ## 更新日志：
+Version [V1.5.2]
+Created [2017 01 13]
+1 Add a VGUtil which add views for any viewgroup.(More convenient update views for any viewgroup than ViewGroupUtils).
+
 版本 [V1.5.0]
 日期 [2016 12 30]
 1 加入复用缓存池，目前默认是缓存5个。类似于RecyclerViewPool。
