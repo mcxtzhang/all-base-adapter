@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.widget.fakergrid.FakerGridView;
@@ -22,14 +22,15 @@ import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeBean;
 
 public class FakerGridViewActivity extends AppCompatActivity {
 
+    VGUtil mVGUtil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faker_grid_view);
         FakerGridView fakerGridView = (FakerGridView) findViewById(R.id.fgv);
-
         //多种ItemViewType，但是数据结构相同，可以传入数据结构泛型，避免强转
-        ViewGroupUtils.addViews(fakerGridView, new SingleAdapter<MulTypeBean>(this, initDatas(), R.layout.item_mul_1) {
+        mVGUtil = new VGUtil(fakerGridView, new SingleAdapter<MulTypeBean>(this, initDatas(), R.layout.item_mul_1) {
             @Override
             public void onBindViewHolder(ViewGroup parent, ViewHolder holder, final MulTypeBean data, int pos) {
                 holder.setText(R.id.tvWords, data.getName() + "");
@@ -44,7 +45,10 @@ public class FakerGridViewActivity extends AppCompatActivity {
                     }
                 });
             }
-        });
+        })
+                .bind();
+
+
     }
 
     public List<MulTypeBean> initDatas() {

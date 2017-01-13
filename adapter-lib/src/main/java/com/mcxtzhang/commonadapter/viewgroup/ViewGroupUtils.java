@@ -23,32 +23,38 @@ public class ViewGroupUtils {
     /**
      * 刷新UI
      * 没有点击事件
+     * The method is deprecated ,{@link VGUtil}
      *
      * @param viewGroup
      * @param adapter
      */
+    @Deprecated
     public static void refreshUI(ViewGroup viewGroup, IViewGroupAdapter adapter) {
         addViews(viewGroup, adapter);
     }
 
     /**
      * 刷新UI ，和点击事件
+     * The method is deprecated ,{@link VGUtil}
      *
      * @param viewGroup
      * @param adapter
      * @param onItemClickListener
      */
+    @Deprecated
     public static void refreshUIWithClickListener(ViewGroup viewGroup, IViewGroupAdapter adapter, OnItemClickListener onItemClickListener) {
         addViews(viewGroup, adapter, onItemClickListener);
     }
 
     /**
      * 刷新UI ，和长按事件
+     * The method is deprecated ,{@link VGUtil}
      *
      * @param viewGroup
      * @param adapter
      * @param onItemClickListener
      */
+    @Deprecated
     public static void refreshUIWithLongClickListener(ViewGroup viewGroup, IViewGroupAdapter adapter
             , OnItemClickListener onItemClickListener, OnItemLongClickListener onItemLongClickListener) {
         addViews(viewGroup, adapter, true, onItemClickListener, onItemLongClickListener);
@@ -57,10 +63,12 @@ public class ViewGroupUtils {
     /**
      * 为任意ViewGroup 添加ItemViews.
      * 并且会清除掉之前所有add过的View
+     * The method is deprecated ,{@link VGUtil}
      *
      * @param viewGroup 必传
      * @param adapter   必传，至少提供要add的View和需要add的count
      */
+    @Deprecated
     public static void addViews(final ViewGroup viewGroup, IViewGroupAdapter adapter) {
         addViews(viewGroup, adapter, true, null, null);
     }
@@ -68,11 +76,13 @@ public class ViewGroupUtils {
     /**
      * 为任意ViewGroup 添加ItemViews.
      * 并且会清除掉之前所有add过的View
+     * The method is deprecated ,{@link VGUtil}
      *
      * @param viewGroup           必传
      * @param adapter             必传，至少提供要add的View和需要add的count
      * @param onItemClickListener Item点击事件
      */
+    @Deprecated
     public static void addViews(final ViewGroup viewGroup, IViewGroupAdapter adapter
             , final OnItemClickListener onItemClickListener) {
         addViews(viewGroup, adapter, true, onItemClickListener, null);
@@ -81,6 +91,7 @@ public class ViewGroupUtils {
 
     /**
      * 为任意ViewGroup 添加ItemViews.
+     * The method is deprecated ,{@link VGUtil}
      *
      * @param viewGroup               必传
      * @param adapter                 必传，至少提供要add的View和需要add的count
@@ -88,6 +99,7 @@ public class ViewGroupUtils {
      * @param onItemClickListener     Item点击事件
      * @param onItemLongClickListener Item长按事件
      */
+    @Deprecated
     public static void addViews(final ViewGroup viewGroup, IViewGroupAdapter adapter
             , boolean removeViews
             , final OnItemClickListener onItemClickListener

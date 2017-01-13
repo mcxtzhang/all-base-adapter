@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.base.IViewGroupAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
@@ -37,6 +37,8 @@ public class FlowSwipeActivity extends AppCompatActivity {
     IViewGroupAdapter mAdapter;
     List<FlowBean> mDatas;
 
+    VGUtil mVGUtil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,15 +61,16 @@ public class FlowSwipeActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         mDatas.remove(data);
-                        ((SwipeMenuLayout)holder.itemView).quickClose();
-                        ViewGroupUtils.refreshUI(mFlowViewGroup, mAdapter);
+                        ((SwipeMenuLayout) holder.itemView).quickClose();
+                        mVGUtil.bind();
                     }
                 });
             }
 
 
         };
-        ViewGroupUtils.addViews(mFlowViewGroup, mAdapter);
+        mVGUtil = new VGUtil(mFlowViewGroup, mAdapter)
+                .bind();
 
     }
 
