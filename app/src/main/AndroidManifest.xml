@@ -45,6 +45,8 @@
         </activity>
         <activity android:name=".rv.header.RvHeaderFooterActivity">
         </activity>
+        <activity android:name=".lvgv.GridViewActivity">
+        </activity>
     </application>
 
 </manifest>

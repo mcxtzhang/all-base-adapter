@@ -9,6 +9,7 @@ import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.DBMultypeSingleIt
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.viewgroup.DBFlowSwipeActivity;
+import mcxtzhang.commonviewgroupadapter.lvgv.GridViewActivity;
 import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
 import mcxtzhang.commonviewgroupadapter.rv.header.RvHeaderFooterActivity;
@@ -27,6 +28,7 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
+        //Viewgroup
         findViewById(R.id.btnLinearLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,12 +87,22 @@ public class LauncherActivity extends AppCompatActivity {
         });
 
 
+        //lvgv
         findViewById(R.id.btnLvSingle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, ListViewSingleActivity.class));
             }
         });
+
+        findViewById(R.id.btnGvSingle).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, GridViewActivity.class));
+            }
+        });
+
+
         findViewById(R.id.btnDBSingle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
