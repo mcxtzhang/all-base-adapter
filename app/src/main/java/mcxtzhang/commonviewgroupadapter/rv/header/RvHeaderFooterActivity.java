@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.mcxtzhang.commonadapter.rv.CommonAdapter;
 import com.mcxtzhang.commonadapter.rv.HeaderFooterAdapter;
+import com.mcxtzhang.commonadapter.rv.IHeaderHelper;
 import com.mcxtzhang.commonadapter.rv.ViewHolder;
 
 import java.util.List;
@@ -41,9 +42,45 @@ public class RvHeaderFooterActivity extends AppCompatActivity {
             }
         };
         mHeaderFooterAdapter = new HeaderFooterAdapter(mInnerAdapter);
-        mHeaderFooterAdapter.setHeaderView(0, new HeaderBean("点我跳转到多Type界面"));
+        //1-0 同步静态数据，借助实体类
+        mHeaderFooterAdapter.setHeaderView(0, new HeaderBean("1-0 同步静态数据，借助实体类 点我跳转到多Type界面"));
+        //1-1 同步静态数据，不借助实体类。
+        mHeaderFooterAdapter.setHeaderView(1, new IHeaderHelper() {
+            @Override
+            public int getItemLayoutId() {
+                return R.layout.header_1_1;
+            }
+
+            @Override
+            public void onBind(ViewHolder holder) {
+                holder.setText(R.id.tv1, "1-1  同步静态数据，不借助实体类。");
+            }
+        });
+
 
         mRv.setAdapter(mHeaderFooterAdapter);
+
+
+        //2-1 异步数据，不借助实体类
+        mRv.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mHeaderFooterAdapter.setHeaderView(2, new IHeaderHelper() {
+                    @Override
+                    public int getItemLayoutId() {
+                        return R.layout.header_2_1;
+                    }
+
+                    @Override
+                    public void onBind(ViewHolder holder) {
+                        //假装从网络拿到了数据
+                        HeaderBean temp = new HeaderBean("2-1 异步数据，不借助实体类");
+                        holder.setText(R.id.tv2, temp.getText());
+                    }
+                });
+                mHeaderFooterAdapter.notifyItemInserted(2);
+            }
+        }, 4000);
 
     }
 }
