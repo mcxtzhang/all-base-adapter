@@ -82,6 +82,13 @@
             android:layout_height="wrap_content"
             android:text="Rv添加头部尾部"/>
 
+
+        <Button
+            android:id="@+id/btnRvMulTypeHeaderFooter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rv多种Type添加头部尾部"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

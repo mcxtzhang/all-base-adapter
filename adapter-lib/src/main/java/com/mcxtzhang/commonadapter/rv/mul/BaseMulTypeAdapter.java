@@ -25,7 +25,10 @@ public class BaseMulTypeAdapter<T extends IMulTypeHelper> extends CommonAdapter<
 
     @Override
     public int getItemViewType(int position) {
-        return mDatas.get(position).getItemLayoutId();
+        if (mDatas != null && !mDatas.isEmpty()) {
+            return mDatas.get(position).getItemLayoutId();
+        }
+        return super.getItemViewType(position);
     }
 
     @Override
