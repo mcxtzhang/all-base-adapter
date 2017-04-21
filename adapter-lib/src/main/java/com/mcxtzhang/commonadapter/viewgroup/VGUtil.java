@@ -68,6 +68,20 @@ public class VGUtil {
      * Begin bind views for {@link #mParent}
      */
     public VGUtil bind() {
+        return bind(false);
+    }
+
+    /**
+     * Refresh ui for {@link #mParent}.
+     * This method will reset {@link OnItemClickListener} and {@link OnItemLongClickListener}
+     *
+     * @return
+     */
+    public VGUtil refreshUI() {
+        return bind(true);
+    }
+
+    private VGUtil bind(boolean refresh) {
         if (mParent == null || mAdapter == null) {
             return this;
         }
@@ -85,7 +99,8 @@ public class VGUtil {
 
             //Step 3 (Optional),
             //If item has not set click listener before, add click listener for each item.
-            if (null != mOnItemClickListener && !itemView.isClickable()) {
+            //If in refresh , reset click listener
+            if (refresh || (null != mOnItemClickListener && !itemView.isClickable())) {
                 final int finalI = i;
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -95,7 +110,7 @@ public class VGUtil {
                 });
             }
             //If item has not set long click listener before, add long click listener for each item.
-            if (null != mOnItemLongClickListener && !itemView.isLongClickable()) {
+            if (refresh || (null != mOnItemLongClickListener && !itemView.isLongClickable())) {
                 final int finalI = i;
                 itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
@@ -106,6 +121,5 @@ public class VGUtil {
             }
         }
         return this;
-
     }
 }

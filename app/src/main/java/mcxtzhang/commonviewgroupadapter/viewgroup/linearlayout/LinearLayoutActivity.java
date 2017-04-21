@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
+import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,15 @@ public class LinearLayoutActivity extends AppCompatActivity {
         };
 
         //单一ItemView
-        ViewGroupUtils.addViews(llCurrent, adapter1);
+        //ViewGroupUtils.addViews(llCurrent, adapter1);
+        final VGUtil vgUtil = new VGUtil(llCurrent, adapter1, new OnItemClickListener() {
+            @Override
+            public void onItemClick(ViewGroup parent, View itemView, int position) {
+                mDatas.remove(position);
+                VGUtil vgUtil1 = vgUtil.refreshUI();
+            }
+        });
+        vgUtil.bind();
 
 
         ViewGroupUtils.addViews(llUseMore, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
