@@ -117,7 +117,7 @@ public class HeaderAndFooterWrapperAdapter extends RecyclerView.Adapter<Recycler
         } else if (isFooterViewPos(position)) {//举例：header 2， innter 2， 0123都不是，4才是，4-2-2 = 0，ok。
             return mFooterViews.keyAt(position - getHeaderViewCount() - getInnerItemCount());
         }
-        return super.getItemViewType(position - getHeaderViewCount());
+        return mInnerAdapter.getItemViewType(position - getHeaderViewCount());
     }
 
     @Override
