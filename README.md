@@ -86,7 +86,7 @@ Step 1. 在项目根build.gradle文件中增加JitPack仓库依赖。
 Step 2. Add the dependency
 ```
     dependencies {
-	        compile 'com.github.mcxtzhang:all-base-adapter:V1.6.0'
+	        compile 'com.github.mcxtzhang:all-base-adapter:V1.7.0'
 	}
 ```
 
@@ -104,11 +104,6 @@ Step 3.
 ## About
 ![ViewGroup](https://github.com/mcxtzhang/all-base-adapter/blob/master/gif/AllBaseAdapter.png)
 
-## Update log
-2016 12 13 V1.1.0:
-* 加入DataBinding的BaseAdapter
-* 加入RecyclerView、ListView BaseAdapter初版。
-
 
 ## to do list
 * ~~考虑加入复用缓存池~~
@@ -117,7 +112,15 @@ Step 3.
 * 整合 RecyclerView、ListView的通用Adapter入库。
 * 加入一些自定义ViewGroup入库，例如流式布局，九宫格，Banner轮播图。
 
-## 更新日志：
+## Update：
+Version [V1.7.0]
+Created [2017 04 23]
+1 Add `notifyDatasetChanged()` for `Adapter`,which uses to refresh ViewGroup's UI .(More convenient update views).
+
+Version [V1.6.0]
+Created [2017 04 21]
+1 fix a bug for adding header and multi type for RecyclerView.
+
 Version [V1.5.2]
 Created [2017 01 13]
 1 Add a VGUtil which add views for any viewgroup.(More convenient update views for any viewgroup than ViewGroupUtils).
@@ -128,6 +131,9 @@ Created [2017 01 13]
 2 替换`onBindView()`的`ItemView`->`通用的ViewHolder`，这样可以少写一些`findViewById()`代码~
 3 加入了一些自定义ViewGroup：流式布局。 和一个 用于嵌套的FakerGridView，具体情况可见Demo。
 
+2016 12 13 V1.1.0:
+* 加入DataBinding的BaseAdapter
+* 加入RecyclerView、ListView BaseAdapter初版。
 
 [ViewGroup 篇 封装博文]:https://gold.xitu.io/post/584d52fdb123db00661c59fa
 [DataBinding 篇 封装博文]:https://gold.xitu.io/post/584fbdbe128fe1006c988d55
