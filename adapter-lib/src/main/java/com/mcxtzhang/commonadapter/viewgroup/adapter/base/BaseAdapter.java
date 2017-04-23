@@ -1,6 +1,8 @@
 package com.mcxtzhang.commonadapter.viewgroup.adapter.base;
 
 import android.content.Context;
+import android.database.DataSetObservable;
+import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import java.util.List;
  * 介绍：datas->View 的 Base Adapter
  * 整个设计的第二层，这里引入datas，实现IViewGroupAdapter的方法
  * <p>
+ * V1.7.0 版本加入，刷新方法 notifyDatasetChanged()
  * 作者：zhangxutong
  * 邮箱：mcxtzhang@163.com
  * 主页：http://blog.csdn.net/zxt0601
@@ -22,10 +25,28 @@ public abstract class BaseAdapter<T> implements IViewGroupAdapter {
     protected Context mContext;
     protected LayoutInflater mInflater;
 
+    protected DataSetObservable mDataSetObservable;
+
     public BaseAdapter(Context context, List<T> datas) {
         mDatas = datas;
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
+        mDataSetObservable = new DataSetObservable();
+    }
+
+    @Override
+    public void notifyDatasetChanged() {
+        mDataSetObservable.notifyChanged();
+    }
+
+    @Override
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        mDataSetObservable.registerObserver(dataSetObserver);
+    }
+
+    @Override
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        mDataSetObservable.unregisterObserver(dataSetObserver);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.mcxtzhang.commonadapter.viewgroup.adapter.base;
 
+import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -38,4 +39,13 @@ public interface IViewGroupAdapter extends ICacheViewAdapter {
      * @return
      */
     int getCount();
+
+    /**
+     * 用户调用，刷新ViewGroup界面
+     */
+    void notifyDatasetChanged();
+
+    void registerDataSetObserver(DataSetObserver dataSetObserver);
+
+    void unregisterDataSetObserver(DataSetObserver dataSetObserver);
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
@@ -52,8 +53,9 @@ public class LinearLayoutActivity extends AppCompatActivity {
         final VGUtil vgUtil = new VGUtil(llCurrent, adapter1, new OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, View itemView, int position) {
+                Toast.makeText(LinearLayoutActivity.this, "position：" + position + "被删除了", Toast.LENGTH_SHORT).show();
                 mDatas.remove(position);
-                VGUtil vgUtil1 = vgUtil.refreshUI();
+                adapter1.notifyDatasetChanged();
             }
         });
         vgUtil.bind();

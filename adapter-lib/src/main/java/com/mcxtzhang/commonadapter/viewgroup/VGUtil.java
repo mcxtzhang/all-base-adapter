@@ -1,5 +1,6 @@
 package com.mcxtzhang.commonadapter.viewgroup;
 
+import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -20,46 +21,50 @@ public class VGUtil {
     ViewGroup mParent;
     IViewGroupAdapter mAdapter;
 
-    boolean remainExistViews;
+    DataSetObserver mDataSetObserver = new DataSetObserver() {
+        @Override
+        public void onChanged() {
+            refreshUI();
+        }
+
+        @Override
+        public void onInvalidated() {
+        }
+    };
+
+    boolean mRemainExistViews;
 
     OnItemClickListener mOnItemClickListener;
     OnItemLongClickListener mOnItemLongClickListener;
 
 
     public VGUtil(ViewGroup parent, IViewGroupAdapter adapter) {
-        mParent = parent;
-        mAdapter = adapter;
+        this(parent, adapter, false);
     }
 
     public VGUtil(ViewGroup parent, IViewGroupAdapter adapter, boolean remainExistViews) {
-        mParent = parent;
-        mAdapter = adapter;
-        this.remainExistViews = remainExistViews;
+        this(parent, adapter, remainExistViews, null, null);
     }
 
     public VGUtil(ViewGroup parent, IViewGroupAdapter adapter, OnItemClickListener onItemClickListener) {
-        mParent = parent;
-        mAdapter = adapter;
-        mOnItemClickListener = onItemClickListener;
+        this(parent, adapter, false, onItemClickListener, null);
     }
 
     public VGUtil(ViewGroup parent, IViewGroupAdapter adapter, OnItemLongClickListener onItemLongClickListener) {
-        mParent = parent;
-        mAdapter = adapter;
-        mOnItemLongClickListener = onItemLongClickListener;
-    }
-
-    public VGUtil(ViewGroup parent, IViewGroupAdapter adapter, boolean remainExistViews, OnItemClickListener onItemClickListener) {
-        mParent = parent;
-        mAdapter = adapter;
-        this.remainExistViews = remainExistViews;
-        mOnItemClickListener = onItemClickListener;
+        this(parent, adapter, false, null, onItemLongClickListener);
     }
 
     public VGUtil(ViewGroup parent, IViewGroupAdapter adapter, boolean remainExistViews, OnItemClickListener onItemClickListener, OnItemLongClickListener onItemLongClickListener) {
+        if (parent == null || adapter == null) {
+            throw new IllegalArgumentException("ViewGroup or Adapter can't be null! ");
+        }
+        if (mAdapter != null) {
+            mAdapter.unregisterDataSetObserver(mDataSetObserver);
+        }
         mParent = parent;
         mAdapter = adapter;
-        this.remainExistViews = remainExistViews;
+        mAdapter.registerDataSetObserver(mDataSetObserver);
+        mRemainExistViews = remainExistViews;
         mOnItemClickListener = onItemClickListener;
         mOnItemLongClickListener = onItemLongClickListener;
     }
@@ -87,7 +92,7 @@ public class VGUtil {
         }
         //Step 1
         //If need clear all existed views
-        if (!remainExistViews) {
+        if (!mRemainExistViews) {
             mAdapter.recycleViews(mParent);
         }
         //Step 2, begin add views
