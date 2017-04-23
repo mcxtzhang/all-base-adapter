@@ -166,34 +166,7 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
 ### 5 刷新方法
 #### 5.1 API:
 ```
-
-    /**
-     * 刷新UI
-     * 没有点击事件
-     *
-     * @param viewGroup
-     * @param adapter
-     */
-    public static void refreshUI(ViewGroup viewGroup, IViewGroupAdapter adapter);
-
-    /**
-     * 刷新UI ，和点击事件
-     *
-     * @param viewGroup
-     * @param adapter
-     * @param onItemClickListener
-     */
-    public static void refreshUIWithClickListener(ViewGroup viewGroup, IViewGroupAdapter adapter, OnItemClickListener onItemClickListener);
-
-    /**
-     * 刷新UI ，和长按事件
-     *
-     * @param viewGroup
-     * @param adapter
-     * @param onItemClickListener
-     */
-    public static void refreshUIWithLongClickListener(ViewGroup viewGroup, IViewGroupAdapter adapter
-            , OnItemClickListener onItemClickListener, OnItemLongClickListener onItemLongClickListener) ;
+   Adapter.notifyDatasetChanged();
 ```
 #### 5.2 用法：
 
@@ -206,17 +179,15 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
         };
 
         //单一ItemView
-        ViewGroupUtils.addViews(llCurrent, adapter1);
-
-        findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
+        //ViewGroupUtils.addViews(llCurrent, adapter1);
+        final VGUtil vgUtil = new VGUtil(llCurrent, adapter1, new OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                for (K50Bean data : mDatas) {
-                    data.setName("替换了");
-                }
-                //刷新
-                ViewGroupUtils.refreshUI(llCurrent, adapter1);
+            public void onItemClick(ViewGroup parent, View itemView, int position) {
+                Toast.makeText(LinearLayoutActivity.this, "position：" + position + "被删除了", Toast.LENGTH_SHORT).show();
+                mDatas.remove(position);
+                adapter1.notifyDatasetChanged();
             }
         });
+        vgUtil.bind();
 
 ```
