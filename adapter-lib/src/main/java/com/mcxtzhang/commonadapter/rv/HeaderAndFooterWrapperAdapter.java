@@ -177,7 +177,6 @@ public class HeaderAndFooterWrapperAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
-        mInnerAdapter.onViewAttachedToWindow(holder);
         int position = holder.getLayoutPosition();
         if (isHeaderViewPos(position) || isFooterViewPos(position)) {
             ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
@@ -190,6 +189,9 @@ public class HeaderAndFooterWrapperAdapter extends RecyclerView.Adapter<Recycler
 
                 p.setFullSpan(true);
             }
+            super.onViewAttachedToWindow(holder);
+        } else {
+            mInnerAdapter.onViewAttachedToWindow(holder);
         }
     }
 }
