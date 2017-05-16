@@ -105,7 +105,7 @@ public class VGUtil {
             //Step 3 (Optional),
             //If item has not set click listener before, add click listener for each item.
             //If in refresh , reset click listener
-            if (refresh || (null != mOnItemClickListener && !itemView.isClickable())) {
+            if (null != mOnItemClickListener && (!itemView.isClickable() || refresh)) {
                 final int finalI = i;
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -115,7 +115,7 @@ public class VGUtil {
                 });
             }
             //If item has not set long click listener before, add long click listener for each item.
-            if (refresh || (null != mOnItemLongClickListener && !itemView.isLongClickable())) {
+            if (null != mOnItemLongClickListener && (!itemView.isLongClickable() || refresh)) {
                 final int finalI = i;
                 itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
