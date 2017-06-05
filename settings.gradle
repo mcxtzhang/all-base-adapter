@@ -1,1 +1,15 @@
 include ':app', ':adapter-lib'
+
+
+def routerParser(){
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+    println 'Though it can reach our requirements,but i will still learn on gradle'
+}
+
+routerParser()
