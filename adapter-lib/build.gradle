@@ -1,3 +1,5 @@
+import groovy.util.slurpersupport.GPathResult
+
 apply plugin: 'com.android.library'
 
 android {
@@ -25,4 +27,104 @@ android {
 dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.android.support:support-v4:25.0.0'
+}
+
+gradle.beforeProject{
+    project->
+        println 'I am in adapterLib,beforeProject'
+        println 'I am in adapterLib,beforeProject'
+        println 'I am in adapterLib,beforeProject'
+        println 'I am in adapterLib,beforeProject'
+        println 'I am in adapterLib,beforeProject'
+        println 'I am in adapterLib,beforeProject'
+}
+
+
+gradle.taskGraph.whenReady {
+    graph ->
+        println 'I am in adapterLib,whenReady'
+        println 'I am in adapterLib,whenReady'
+        println 'I am in adapterLib,whenReady'
+        println 'I am in adapterLib,whenReady'
+        println 'I am in adapterLib,whenReady'
+        println 'I am in adapterLib,whenReady'
+        //copyFile.execute()
+        //parseRouter.execute()
+}
+
+gradle.buildFinished{result->
+    println 'I am in adapterLib,buildFinished'
+    println 'I am in adapterLib,buildFinished'
+    println 'I am in adapterLib,buildFinished'
+    println 'I am in adapterLib,buildFinished'
+    println 'I am in adapterLib,buildFinished'
+    println 'I am in adapterLib,buildFinished'
+}
+
+task copyFile {
+    def srcFile = new File('.gitignore')
+    def outFile = new File('.haha.txt')
+    inputs.dir srcFile
+    outputs.file outFile
+
+    doLast {
+        outFile.withPrintWriter { writer ->
+            srcFile.eachLine { line ->
+                writer.println(line)
+            }
+        }
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+    }
+}
+
+task parseRouter {
+    def srcFilePath = "app/src/main/AndroidManifest.xml"
+    def targetFilePath = "temp2.txt"
+
+    doLast {
+        GPathResult result = new XmlSlurper().parse(new File(srcFilePath))
+//println result //这里输出的是<> xxxx</>里的xxx
+        def String packageName = result.@package
+//println packageName
+
+        new File(targetFilePath).withPrintWriter { printWriter ->
+            printWriter.println("{")
+            def String body = "";
+            result.application.activity.each { activity ->
+                def String activityValue = activity['@android:name']
+                //println activityValue
+                def index = activityValue.lastIndexOf('.')
+                //println index
+
+                def key = activityValue.substring(index + 1)
+                //println key
+                def value = packageName + activityValue
+                //println value
+                //println key + ":\"" + value + "\","
+                body += key + ":\"" + value + "\",\n";
+            }
+            printWriter.println(body.substring(0, body.length() - 2))
+            printWriter.println("}")
+        }
+        println 'router created'
+    }
 }

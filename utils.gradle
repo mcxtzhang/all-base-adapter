@@ -1,0 +1,34 @@
+task copyFile{
+    def srcFile = new File('.gitignore')
+    def outFile = new File('haha.txt')
+    inputs.dir srcFile
+    outputs.file outFile
+
+    doLast{
+        outFile.withPrintWriter{writer->
+            srcFile.eachLine{line->
+                writer.println( line)
+            }
+        }
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+        println "ddddddddddddddddddd"
+    }
+}
