@@ -10,16 +10,16 @@ task copyFile{
                 writer.println( line)
             }
         }
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
         println "ddddddddddddddddddd"
         println "ddddddddddddddddddd"
         println "ddddddddddddddddddd"
@@ -31,4 +31,21 @@ task copyFile{
         println "ddddddddddddddddddd"
         println "ddddddddddddddddddd"
     }
+}
+
+def getPackageAdvanced(){
+    println 'in getPackageAdvanced()'
+    println 'in getPackageAdvanced()'
+    println 'in getPackageAdvanced()'
+    println 'in getPackageAdvanced()'
+    println 'in getPackageAdvanced()'
+    println 'in getPackageAdvanced()'
+    def xmlFile = project.file(project.rootDir.getAbsolutePath()+"/app/src/main/AndroidManifest.xml")
+    def rootManifest = new XmlSlurper().parse(xmlFile)
+    return rootManifest['@package']
+}
+
+ext{
+    //除了 ext.xxx 定义变量
+    getPackageAdvanced = this.&getPackageAdvanced
 }

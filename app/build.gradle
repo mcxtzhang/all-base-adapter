@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply from:rootProject.getRootDir().getAbsolutePath()+"/utils.gradle"
+apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
 
 android {
     compileSdkVersion 25
@@ -30,8 +30,18 @@ dependencies {
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
 }
 
-gradle.beforeProject{
-    project->
+
+//搜索指定名称的任务 并hook
+tasks.getByName("assemble"){
+    it.doFirst{
+        println "$project.name : After assemble,"
+        def pkgName = getPackageAdvanced()
+        println "get the pkgName is :"+pkgName
+    }
+}
+
+/*gradle.beforeProject {
+    project ->
         println 'I am in app,beforeProject'
         println 'I am in app,beforeProject'
         println 'I am in app,beforeProject'
@@ -40,8 +50,8 @@ gradle.beforeProject{
         println 'I am in app,beforeProject'
 }
 
-gradle.taskGraph.whenReady{
-    graph->
+gradle.taskGraph.whenReady {
+    graph ->
         println 'I am in app,whenReady'
         println 'I am in app,whenReady'
         println 'I am in app,whenReady'
@@ -51,12 +61,12 @@ gradle.taskGraph.whenReady{
         copyFile.execute()
 }
 
-gradle.buildFinished{result->
+gradle.buildFinished { result ->
     println 'I am in app,buildFinished'
     println 'I am in app,buildFinished'
     println 'I am in app,buildFinished'
     println 'I am in app,buildFinished'
     println 'I am in app,buildFinished'
     println 'I am in app,buildFinished'
-}
+}*/
 

@@ -29,7 +29,7 @@ dependencies {
     compile 'com.android.support:support-v4:25.0.0'
 }
 
-gradle.beforeProject{
+/*gradle.beforeProject{
     project->
         println 'I am in adapterLib,beforeProject'
         println 'I am in adapterLib,beforeProject'
@@ -59,7 +59,7 @@ gradle.buildFinished{result->
     println 'I am in adapterLib,buildFinished'
     println 'I am in adapterLib,buildFinished'
     println 'I am in adapterLib,buildFinished'
-}
+}*/
 
 task copyFile {
     def srcFile = new File('.gitignore')
