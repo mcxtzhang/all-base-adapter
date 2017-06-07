@@ -1,3 +1,5 @@
+apply from:rootDir.absolutePath+"/installApk.gradle"
+
 task copyFile {
     def srcFile = new File('.gitignore')
     def outFile = new File('haha.txt')
@@ -33,22 +35,6 @@ task copyFile {
     }
 }
 
-def getPackageAdvanced() {
-    println 'in getPackageAdvanced()'
-    println 'in getPackageAdvanced()'
-    println 'in getPackageAdvanced()'
-    println 'in getPackageAdvanced()'
-    println 'in getPackageAdvanced()'
-    println 'in getPackageAdvanced()'
-    def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")
-    def rootManifest = new XmlSlurper().parse(xmlFile)
-    return rootManifest['@package']
-}
-
-ext {
-    //除了 ext.xxx 定义变量 ,还可以如下定义方法
-    getPackageAdvanced = this.&getPackageAdvanced
-}
 
 task(getPkgName) {
     doLast {

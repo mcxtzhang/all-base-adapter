@@ -16,7 +16,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        demo{
+        demo {
             minifyEnabled false
         }
     }
@@ -33,18 +33,16 @@ dependencies {
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
 }
 
-
 //搜索指定名称的任务 并hook
-tasks.getByName("assemble"){
-    it.doFirst{
+tasks.getByName("assemble") {
+    it.doFirst {
         println "$project.name : After assemble,"
         def pkgName = getPackageAdvanced()
-        println "get the pkgName is :"+pkgName
+        println "get the pkgName is :" + pkgName
     }
 }
 
-println 'app:parent:'+gradle.parent  //null
-
+println 'app:parent:' + gradle.parent  //null
 
 /*gradle.beforeProject {
     project ->
@@ -76,6 +74,16 @@ gradle.buildFinished { result ->
     println 'I am in app,buildFinished'
 }*/
 
+/*gradle.taskGraph.whenReady {
+    //getPkgName.execute()
+    testExecCommand.execute()
+}*/
 gradle.taskGraph.whenReady {
-    getPkgName.execute()
+    tasks.getByName('installDebug') {
+        it.doLast {
+            testExecCommand.execute()
+        }
+    }
 }
+
+

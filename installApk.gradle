@@ -1,0 +1,10 @@
+apply from:rootDir.absolutePath+"/base_utils.gradle"
+
+def pkgName = getPackageAdvanced();
+def actName = getLaunchActivity();
+task testExecCommand(type: Exec, description: 'This is a exec commond test') {
+    //每一个命令要分开来写 例如 adb shell dumpsys ，如下形式:
+    //commandLine 'adb', 'shell', 'dumpsys'
+    //adb shell am start -n com.mcxtzhang.github/.TestNewASActivity
+    commandLine 'adb', 'shell', 'am', 'start', '-n', "$pkgName/$actName"
+}

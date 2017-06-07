@@ -1,0 +1,30 @@
+//这个文件定义一些函数，具体task分开文件定义
+def getPackageAdvanced() {
+    def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")
+    def rootManifest = new XmlSlurper().parse(xmlFile)
+    return rootManifest['@package']
+}
+
+def getLaunchActivity() {
+    println 'getlaunchactivity'
+    def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")
+    def rootManifest = new XmlSlurper().parse(xmlFile)
+    def result ="";
+    rootManifest.application.activity.each { activity ->
+        String action = activity."intent-filter".action['@android:name']
+        String category = activity."intent-filter".category['@android:name']
+        if ("android.intent.action.MAIN" == action
+                && "android.intent.category.LAUNCHER" == category) {
+            if (result == ""){
+                result = activity['@android:name']
+            }
+        }
+    }
+    return result
+}
+
+ext {
+    //除了 ext.xxx 定义变量 ,还可以如下定义方法
+    getPackageAdvanced = this.&getPackageAdvanced
+    getLaunchActivity = this.&getLaunchActivity
+}
