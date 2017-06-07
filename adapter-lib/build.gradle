@@ -128,3 +128,9 @@ task parseRouter {
         println 'router created'
     }
 }
+
+println 'app:parent:'+gradle.parent //null
+println 'app:'+gradleVar
+println "app:"+gradle.localVar
+
+

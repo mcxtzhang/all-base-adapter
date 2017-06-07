@@ -1,25 +1,25 @@
-task copyFile{
+task copyFile {
     def srcFile = new File('.gitignore')
     def outFile = new File('haha.txt')
     inputs.dir srcFile
     outputs.file outFile
 
-    doLast{
-        outFile.withPrintWriter{writer->
-            srcFile.eachLine{line->
-                writer.println( line)
+    doLast {
+        outFile.withPrintWriter { writer ->
+            srcFile.eachLine { line ->
+                writer.println(line)
             }
         }
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
-        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+"$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
+        println "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + "$project.name"
         println "ddddddddddddddddddd"
         println "ddddddddddddddddddd"
         println "ddddddddddddddddddd"
@@ -33,19 +33,27 @@ task copyFile{
     }
 }
 
-def getPackageAdvanced(){
+def getPackageAdvanced() {
     println 'in getPackageAdvanced()'
     println 'in getPackageAdvanced()'
     println 'in getPackageAdvanced()'
     println 'in getPackageAdvanced()'
     println 'in getPackageAdvanced()'
     println 'in getPackageAdvanced()'
-    def xmlFile = project.file(project.rootDir.getAbsolutePath()+"/app/src/main/AndroidManifest.xml")
+    def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")
     def rootManifest = new XmlSlurper().parse(xmlFile)
     return rootManifest['@package']
 }
 
-ext{
-    //除了 ext.xxx 定义变量
+ext {
+    //除了 ext.xxx 定义变量 ,还可以如下定义方法
     getPackageAdvanced = this.&getPackageAdvanced
+}
+
+task(getPkgName) {
+    doLast {
+        def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")
+        def rootManifest = new XmlSlurper().parse(xmlFile)
+        println "Task - getPkgName, and the pkg name is : "+ rootManifest.@package
+    }
 }

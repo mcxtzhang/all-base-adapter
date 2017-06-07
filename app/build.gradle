@@ -16,6 +16,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        demo{
+            minifyEnabled false
+        }
     }
     dataBinding {
         enabled true
@@ -39,6 +42,9 @@ tasks.getByName("assemble"){
         println "get the pkgName is :"+pkgName
     }
 }
+
+println 'app:parent:'+gradle.parent  //null
+
 
 /*gradle.beforeProject {
     project ->
@@ -70,3 +76,6 @@ gradle.buildFinished { result ->
     println 'I am in app,buildFinished'
 }*/
 
+gradle.taskGraph.whenReady {
+    getPkgName.execute()
+}

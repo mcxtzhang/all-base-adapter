@@ -1,7 +1,7 @@
 include ':app', ':adapter-lib'
 
 
-def routerParser(){
+def routerParser() {
     println 'Though it can reach our requirements,but i will still learn on gradle'
     println 'Though it can reach our requirements,but i will still learn on gradle'
     println 'Though it can reach our requirements,but i will still learn on gradle'
@@ -19,3 +19,7 @@ println 'I am in settings.gradle,gradle id is '+gradle.hashCode()
 println 'Home dir:'+gradle.gradleHomeDir
 println 'UserHome dir:'+gradle.gradleUserHomeDir
 println 'parent:'+gradle.parent*/
+
+Properties properties = new Properties()
+properties.load(new File(rootDir.getAbsolutePath() + "/local.properties").newDataInputStream())
+gradle.ext.localVar = properties.getProperty("localVar")
