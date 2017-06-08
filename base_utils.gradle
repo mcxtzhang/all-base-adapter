@@ -6,16 +6,15 @@ def getPackageAdvanced() {
 }
 
 def getLaunchActivity() {
-    println 'getlaunchactivity'
     def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")
     def rootManifest = new XmlSlurper().parse(xmlFile)
-    def result ="";
+    def result = "";
     rootManifest.application.activity.each { activity ->
         String action = activity."intent-filter".action['@android:name']
         String category = activity."intent-filter".category['@android:name']
         if ("android.intent.action.MAIN" == action
                 && "android.intent.category.LAUNCHER" == category) {
-            if (result == ""){
+            if (result == "") {
                 result = activity['@android:name']
             }
         }

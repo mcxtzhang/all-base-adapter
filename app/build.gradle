@@ -81,7 +81,7 @@ gradle.buildFinished { result ->
 gradle.taskGraph.whenReady {
     tasks.getByName('installDebug') {
         it.doLast {
-            testExecCommand.execute()
+            startLaunchActivity.execute()
         }
     }
 }

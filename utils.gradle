@@ -1,4 +1,6 @@
 apply from:rootDir.absolutePath+"/installApk.gradle"
+apply from:rootDir.absolutePath+"/base_utils.gradle"
+
 
 task copyFile {
     def srcFile = new File('.gitignore')
