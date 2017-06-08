@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
 
-apply plugin:'zplugins'
+apply plugin:'zhangxutongplugins'
 
 buildscript {
     repositories {
         maven {
-            url uri('../repo')
+            url uri('../../repo')
         }
     }
     dependencies {
-        classpath 'com.mcxtzhang.gradle.plugin:plugin:1.0.0'
+        classpath 'com.mcxtzhang.plugins:gradle-plugins:1.4.0'
     }
 }
 
