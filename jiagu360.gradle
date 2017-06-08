@@ -1,0 +1,54 @@
+task jiagu360 {
+    doLast {
+        String java = "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
+        String jiaguJar = "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
+
+        String account = "13938422051"
+        String password = "q0q0q0"
+
+        String keystorePath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
+        String keystorePassword = "anlaiye123465"
+        String alias = "anlaiye"
+        String aliasPassword = "anlaiye123465"
+
+        String srcApkPath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
+        String outApkPath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\jiagued\\"
+
+        exec {
+            commandLine java, "-jar", jiaguJar, "-login", account, password
+        }
+        exec {
+            commandLine java, "-jar", jiaguJar, "-importsign", keystorePath, keystorePassword, alias, aliasPassword
+        }
+        exec {
+            commandLine java, "-jar", jiaguJar, "-config", "-"
+        }
+        exec {
+            commandLine java, "-jar", jiaguJar, "-jiagu", srcApkPath, outApkPath
+        }
+    }
+
+/*    doLast {
+        String java = "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
+        String jiaguJar = "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
+
+        String account = "13938422051"
+        String password = "q0q0q0"
+
+        String keystorePath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
+        String keystorePassword = "anlaiye123465"
+        String alias = "anlaiye"
+        String aliasPassword = "anlaiye123465"
+
+        String srcApkPath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
+        String outApkPath = "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\jiagued\\"
+
+        String result;
+        //println result
+        //单纯执行命令
+        result = "$java -jar $jiaguJar -login $account $password ".execute(null, project.rootDir).text.trim()
+        result = "$java -jar $jiaguJar -importsign $keystorePath $keystorePassword $alias $aliasPassword".execute(null, project.rootDir).text.trim()
+        result = "$java -jar $jiaguJar -config -".execute(null, project.rootDir).text.trim()
+        result = "$java -jar $jiaguJar -jiagu $srcApkPath $outApkPath".execute(null, project.rootDir).text.trim()
+    }*/
+}
