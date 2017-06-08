@@ -1,6 +1,21 @@
 apply plugin: 'com.android.application'
 apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
 
+apply plugin:'zplugins'
+
+buildscript {
+    repositories {
+        maven {
+            url uri('../repo')
+        }
+    }
+    dependencies {
+        classpath 'com.mcxtzhang.gradle.plugin:plugin:1.0.0'
+    }
+}
+
+
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.1"
