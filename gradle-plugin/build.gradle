@@ -13,8 +13,8 @@ repositories {
 repositories {
     mavenCentral()
 }
-group = 'com.mcxtzhang.gradle.plugin'
-version = '1.0.0'
+group = 'com.mcxtzhang.gradle.gradle-plugin'
+version = '1.0.1'
 
 uploadArchives {
     repositories {

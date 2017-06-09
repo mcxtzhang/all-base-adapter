@@ -1,4 +1,4 @@
-include ':app', ':adapter-lib', ':plugin'
+include ':app', ':adapter-lib', ':gradle-plugin'
 
 
 def routerParser() {

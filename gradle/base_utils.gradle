@@ -1,3 +1,5 @@
+//已经添加
+
 //这个文件定义一些函数，具体task分开文件定义
 def getPackageAdvanced() {
     def xmlFile = project.file(project.rootDir.getAbsolutePath() + "/app/src/main/AndroidManifest.xml")

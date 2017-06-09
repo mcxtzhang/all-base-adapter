@@ -1,17 +1,23 @@
 apply plugin: 'com.android.application'
-apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
+//apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
 
-apply plugin:'zhangxutongplugins'
+apply plugin: 'z-debug-helper'
+apply plugin: '360jiagu'
 
-buildscript {
-    repositories {
-        maven {
-            url uri('../../repo')
-        }
-    }
-    dependencies {
-        classpath 'com.mcxtzhang.plugins:gradle-plugins:1.4.0'
-    }
+Jiagu {
+    javaPath "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
+    jiaguJarPath "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
+
+    account "360U1422083481"
+    password "kW^rpUnWQ1o2"
+
+    keystorePath "E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
+    keystorePassword "anlaiye123465"
+    alias "anlaiye"
+    aliasPassword "anlaiye123465"
+
+    srcApkPath "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
+    outApkPath "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\channels\\"
 }
 
 
@@ -93,13 +99,7 @@ gradle.buildFinished { result ->
     //getPkgName.execute()
     testExecCommand.execute()
 }*/
-gradle.taskGraph.whenReady {
-    tasks.getByName('installDebug') {
-        it.doLast {
-            startLaunchActivity.execute()
-        }
-    }
-}
+
 
 
 
