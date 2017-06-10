@@ -5,8 +5,8 @@ apply plugin: 'z-debug-helper'
 apply plugin: '360jiagu'
 
 Jiagu {
-    javaPath "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
-    jiaguJarPath "C:\\Users\\admin\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
+    javaPath "C:\\Users\\Administrator\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
+    jiaguJarPath "C:\\Users\\Administrator\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
 
     account "360U1422083481"
     password "kW^rpUnWQ1o2"
@@ -16,10 +16,36 @@ Jiagu {
     alias "anlaiye"
     aliasPassword "anlaiye123465"
 
-    srcApkPath "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\apk\\app-release.apk"
-    outApkPath "E:\\ChongGou3\\anlaiye\\Android_Aly\\app\\build\\outputs\\channels\\"
-}
+    srcApkPath "C:\\Users\\Administrator\\Desktop\\Anlaiye.apk"
+    outApkPath = project.rootDir.absolutePath+"\\app\\build\\outputs\\hhhhhhhhhh.apk"
 
+     zipalignPath"C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\zipalign"
+     apksignerPath "C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat"
+
+
+
+}
+/*Jiagu {
+    javaPath "C:\\Users\\Administrator\\Desktop\\360jiagubao_windows_64\\jiagu\\java\\bin\\java.exe"
+    jiaguJarPath "C:\\Users\\Administrator\\Desktop\\360jiagubao_windows_64\\jiagu\\jiagu.jar"
+
+    account "360U1422083481"
+    password "kW^rpUnWQ1o2"
+
+    keystorePath "E:\\ChongGou3\\anlaiye\\Android_Aly\\anlaiye.keystore"
+    keystorePassword "anlaiye123465"
+    alias "anlaiye"
+    aliasPassword "anlaiye123465"
+
+    srcApkPath "C:\\Users\\Administrator\\Desktop\\Anlaiye.apk"
+    outApkPath = project.rootDir.absolutePath+"\\app\\build\\outputs\\hhhhhhhhhh.apk"
+
+    zipalignPath"C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\zipalign"
+    apksignerPath "C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat"
+
+
+
+}*/
 
 
 android {
@@ -100,7 +126,44 @@ gradle.buildFinished { result ->
     testExecCommand.execute()
 }*/
 
+task test14(type: Exec, description: 'CompileJNI source via NDK') {
+    //commandLine 'apksigner','sign','--ks','C:\\Users\\Administrator\\Desktop\\anlaiye.keystore','--ks-pass','pass:anlaiye123465','C:\\Users\\Administrator\\Desktop\\Anlaiye.apk'
+    //workingDir  "C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\"
+    commandLine 'C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat', 'sign', "--ks"
+    //commandLine 'C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat','--help'
+}
+task stopTomcat(type: Exec) {
+    //workingDir '../tomcat/bin'
 
+    commandLine 'C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat', '--help'
+    commandLine 'C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat', 'sign', "--ks", '--ks-pass', 'pass:anlaiye123465'
+    //store the output instead of printing to the console:
+    standardOutput = new ByteArrayOutputStream()
+    //extension method stopTomcat.output() can be used to obtain the output:
+    ext.output = {
+        return standardOutput.toString()
+    }
+}
 
+task outputLog {
+    String zipalignPath = "C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\zipalign"
+    String srcUnzipedUnsignedApk = "C:\\Users\\Administrator\\Desktop\\Anlaiye.apk"
+    String outputApk = project.rootDir.absolutePath+"\\app\\build\\outputs\\youhuaed.apk"
+
+    String apksignerPath ="C:\\Users\\Administrator\\AppData\\Local\\Android\\sdk1\\build-tools\\25.0.2\\apksigner.bat"
+    //dependsOn stopTomcat
+    doLast {
+        //zip优化
+        println 'zxt begin ziped.....................'
+        exec {
+            commandLine zipalignPath, "-v", "4", srcUnzipedUnsignedApk, outputApk
+        }
+        //签名
+        println 'zxt begin signed.....................'
+        //println "aaA:"+stopTomcat.output()
+        String result = "$apksignerPath sign --ks C:\\Users\\Administrator\\Desktop\\anlaiye.keystore  --ks-pass pass:anlaiye123465 $outputApk".execute(null, project.rootDir).text.trim()
+        println "result+$result"
+    }
+}
 
 
