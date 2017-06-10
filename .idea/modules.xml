@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/all-base-adapter.iml" filepath="$PROJECT_DIR$/all-base-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/plugin/plugin.iml" filepath="$PROJECT_DIR$/plugin/plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" />
     </modules>
   </component>
 </project>

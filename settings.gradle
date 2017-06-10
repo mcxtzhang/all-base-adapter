@@ -12,7 +12,7 @@ def routerParser() {
     println 'Though it can reach our requirements,but i will still learn on gradle'
 }
 
-routerParser()
+//routerParser()
 
 /*
 println 'I am in settings.gradle,gradle id is '+gradle.hashCode()
