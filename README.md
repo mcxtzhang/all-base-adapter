@@ -98,7 +98,7 @@ Step 3.
 
 [（推荐）ViewGroup V1.5.0版本之后 相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-ViewGroup_after_1.5.0.md)
 
-[（不推荐）ViewGroup V1.5.0版本之前 相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-ViewGroup.md)
+[（弃用）ViewGroup V1.5.0版本之前 相关点这里](https://github.com/mcxtzhang/all-base-adapter/blob/master/README-cn-ViewGroup.md)
 
 
 ## About
@@ -113,6 +113,10 @@ Step 3.
 * 加入一些自定义ViewGroup入库，例如流式布局，九宫格，Banner轮播图。
 
 ## Update：
+Version [V1.8.0]
+Created [2017 06 12]
+1 Suggest to get `VGUtil` by `VGUtil.Builder`.
+
 Version [V1.7.0]
 Created [2017 04 23]
 1 Add `notifyDatasetChanged()` for `Adapter`,which uses to refresh ViewGroup's UI .(More convenient update views).

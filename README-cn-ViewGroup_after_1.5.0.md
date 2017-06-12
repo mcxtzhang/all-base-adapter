@@ -13,17 +13,18 @@ https://gold.xitu.io/post/584d52fdb123db00661c59fa
 
 #### 用法：
 
-Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一句代码**搞定：
+建议使用Builder模式构建VGUtil：
 ```
-        final SingleAdapter adapter1 = new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
-            @Override
-            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
-                holder.setText(R.id.tv, data.getName());
-            }
-        };
-
-        //单一ItemView
-        ViewGroupUtils.addViews(llCurrent, adapter1);
+                new VGUtil.Builder()
+                        .setParent(llUseMore)
+                        .setAdapter(new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
+                            @Override
+                            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
+                                holder.setText(R.id.tv, data.getName());
+                            }
+                        })
+                        .build()
+                        .bind();
 
 ```
 
@@ -47,27 +48,29 @@ Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一
         };
 
         //多种ItemViewType，但是数据结构相同，可以传入数据结构泛型，避免强转
-        ViewGroupUtils.addViews(linearLayout, new MulTypeAdapter<MulTypeBean>(this, initDatas()) {
-            @Override
-            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, final MulTypeBean data, int pos) {
-                holder.setText(R.id.tvWords, data.getName() + "");
-                Glide.with(MulTypeActivity.this)
-                        .load(data.getAvatar())
-                        .into((ImageView) holder.findViewById(ivAvatar));
-                //#### Adapter.onBindView()里设置 优先级更高
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
+        //2017 06 12 V1.8.0 建议使用Builder模式构建VGUtil
+        new VGUtil.Builder()
+                .setParent(linearLayout)
+                .setAdapter(new MulTypeAdapter<MulTypeBean>(this, initDatas()) {
                     @Override
-                    public void onClick(View view) {
-                        Toast.makeText(mContext, "onBindView里设置:文字是:" + data.getName(), Toast.LENGTH_SHORT).show();
+                    public void onBindViewHolder(ViewGroup parent, ViewHolder holder, final MulTypeBean data, int pos) {
+                        holder.setText(R.id.tvWords, data.getName() + "");
+                        Glide.with(MulTypeActivity.this)
+                                .load(data.getAvatar())
+                                .into((ImageView) holder.findViewById(ivAvatar));
+                        //#### Adapter.onBindView()里设置 优先级更高
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "onBindView里设置:文字是:" + data.getName(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-                });
-            }
 
-        }, onItemClickListener);
-        //可以在`ViewGroupUtils.addViews`直接作为参数传入.\
-        // 也可以用`ViewGroupUtils.setOnItemClickListener(）`设置
-        // **优先级比`Adapter.onBindView()`里设置低，**
-        //ViewGroupUtils.setOnItemClickListener(linearLayout,onItemClickListener);
+                })
+                .setOnItemClickListener(onItemClickListener)
+                .build()
+                .bind();
 ```
 
 
@@ -80,25 +83,29 @@ Adapter泛型传入JavaBean，构造函数传入数据集和layout布局，**一
 #### 用法：
 如果数据结构不同，则不用传入泛型，但是使用时需要强转：
 ```
-        //多种Item类型：数据结构不同 不传泛型了 使用时需要强转javaBean，判断ItemLayoutId
-        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_mul_type_mul_bean), new MulTypeAdapter(this, datas) {
-            @Override
-            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, IMulTypeHelper data, int pos) {
-                switch (data.getItemLayoutId()) {
-                    case R.layout.item_mulbean_1:
-                        MulBean1 mulBean1 = (MulBean1) data;
-                        Glide.with(MulTypeMulBeanActivity.this)
-                                .load(mulBean1.getUrl())
-                                .into((ImageView) holder.itemView);
-                        break;
-                    case R.layout.item_mulbean_2:
-                        MulBean2 mulBean2 = (MulBean2) data;
-                        TextView tv = (TextView) holder.itemView;
-                        tv.setText(mulBean2.getName());
-                }
-            }
+        //V1.8.0 建议使用Builder模式构建VGUtil
+        new VGUtil.Builder()
+                .setParent((ViewGroup) findViewById(R.id.activity_mul_type_mul_bean))
+                .setAdapter(new MulTypeAdapter(this, datas) {
+                    @Override
+                    public void onBindViewHolder(ViewGroup parent, ViewHolder holder, IMulTypeHelper data, int pos) {
+                        switch (data.getItemLayoutId()) {
+                            case R.layout.item_mulbean_1:
+                                MulBean1 mulBean1 = (MulBean1) data;
+                                Glide.with(MulTypeMulBeanActivity.this)
+                                        .load(mulBean1.getUrl())
+                                        .into((ImageView) holder.itemView);
+                                break;
+                            case R.layout.item_mulbean_2:
+                                MulBean2 mulBean2 = (MulBean2) data;
+                                TextView tv = (TextView) holder.itemView;
+                                tv.setText(mulBean2.getName());
+                        }
+                    }
 
-        });
+                })
+                .build()
+                .bind();
 ```
 数据结构：
 ```
@@ -142,10 +149,8 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
                 });
             }
 ```
-#### 4.2 通过ViewGroupUtils设置
-可以在`ViewGroupUtils.addViews`直接作为参数传入.
-
-也可以用`ViewGroupUtils.setOnItemClickListener(）`设置       。
+#### 4.2 通过`VGUtil.Builder()`设置
+可以在`VGUtil.Builder()`作为参数传入.
 
 **优先级比`Adapter.onBindView()`里设置低，原因后文会提到。**
 ```
@@ -156,10 +161,13 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
                 Toast.makeText(MulTypeActivity.this, "通过OnItemClickListener设置:" + position, Toast.LENGTH_SHORT).show();
             }
         };
-        //可以在`ViewGroupUtils.addViews`直接作为参数传入.\
-        ViewGroupUtils.addViews(linearLayout, adapter ,onItemClickListener);
-        //或者 也可以用`ViewGroupUtils.setOnItemClickListener(）`设置
-        ViewGroupUtils.setOnItemClickListener(linearLayout,onItemClickListener);
+        new VGUtil.Builder()
+                .setParent(linearLayout)
+                .setAdapter(adapter)
+                .setOnItemClickListener(onItemClickListener)
+                .setOnItemLongClickListener(longClickListener)
+                .build()
+                .bind();
 
 ```
 
@@ -188,6 +196,7 @@ item的点击和长按等事件，有两种方法设置,这里以点击事件为
                 adapter1.notifyDatasetChanged();
             }
         });
+        //刷新刷新刷新
         vgUtil.bind();
 
 ```
