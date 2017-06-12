@@ -12,12 +12,13 @@ import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemLongClickListener;
  * 为任意ViewGroup 动态addView的工具类，
  * 只依赖于 IViewGroupAdapter 接口
  * <p>
+ * 已经废弃，推荐使用{@link VGUtil}
  * 作者：zhangxutong
  * 邮箱：mcxtzhang@163.com
  * 主页：http://blog.csdn.net/zxt0601
  * 时间： 16/12/08.
  */
-
+@Deprecated
 public class ViewGroupUtils {
 
     /**

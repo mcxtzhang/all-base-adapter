@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.mcxtzhang.commonadapter.databinding.viewgroup.SingleBindingAdapter;
-import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.swipemenulib.SwipeMenuLayout;
 
 import java.util.ArrayList;
@@ -19,6 +19,7 @@ public class DBFlowSwipeActivity extends AppCompatActivity {
     ActivityDbflowSwipeBinding mBinding;
     SingleBindingAdapter mAdapter;
     List<FlowBean> mDatas;
+    VGUtil mVGUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,12 @@ public class DBFlowSwipeActivity extends AppCompatActivity {
 
         mAdapter = new SingleBindingAdapter<>(this, mDatas = iniDatas(), R.layout.item_db_flow_swipe);
         mAdapter.setItemPresenter(new ItemDelPresenter());
-        ViewGroupUtils.addViews(mBinding.flowLayout, mAdapter);
+        //ViewGroupUtils.addViews(mBinding.flowLayout, mAdapter);
+        mVGUtil = new VGUtil.Builder()
+                .setParent(mBinding.flowLayout)
+                .setAdapter(mAdapter)
+                .build()
+                .bind();
 
     }
 
@@ -36,7 +42,8 @@ public class DBFlowSwipeActivity extends AppCompatActivity {
         public void onDelClick(FlowBean flowBean, View view) {
             mDatas.remove(flowBean);
             ((SwipeMenuLayout) view.getParent()).quickClose();
-            ViewGroupUtils.refreshUI(mBinding.flowLayout, mAdapter);
+            //ViewGroupUtils.refreshUI(mBinding.flowLayout, mAdapter);
+            mAdapter.notifyDatasetChanged();
         }
     }
 

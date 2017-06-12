@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.MulTypeAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
@@ -45,7 +45,7 @@ public class MulTypeActivity extends AppCompatActivity {
         };
 
         //多种ItemViewType，但是数据结构相同，可以传入数据结构泛型，避免强转
-        ViewGroupUtils.addViews(linearLayout, new MulTypeAdapter<MulTypeBean>(this, initDatas()) {
+/*        ViewGroupUtils.addViews(linearLayout, new MulTypeAdapter<MulTypeBean>(this, initDatas()) {
             @Override
             public void onBindViewHolder(ViewGroup parent, ViewHolder holder, final MulTypeBean data, int pos) {
                 holder.setText(R.id.tvWords, data.getName() + "");
@@ -61,7 +61,31 @@ public class MulTypeActivity extends AppCompatActivity {
                 });
             }
 
-        }, onItemClickListener);
+        }, onItemClickListener);*/
+        //2017 06 12 V1.8.0 建议使用Builder模式构建VGUtil
+        new VGUtil.Builder()
+                .setParent(linearLayout)
+                .setAdapter(new MulTypeAdapter<MulTypeBean>(this, initDatas()) {
+                    @Override
+                    public void onBindViewHolder(ViewGroup parent, ViewHolder holder, final MulTypeBean data, int pos) {
+                        holder.setText(R.id.tvWords, data.getName() + "");
+                        Glide.with(MulTypeActivity.this)
+                                .load(data.getAvatar())
+                                .into((ImageView) holder.findViewById(ivAvatar));
+                        //#### Adapter.onBindView()里设置 优先级更高
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "onBindView里设置:文字是:" + data.getName(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                })
+                .setOnItemClickListener(onItemClickListener)
+                .build()
+                .bind();
+
         //可以在`ViewGroupUtils.addViews`直接作为参数传入.\
         // 也可以用`ViewGroupUtils.setOnItemClickListener(）`设置
         // **优先级比`Adapter.onBindView()`里设置低，**

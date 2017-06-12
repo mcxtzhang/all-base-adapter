@@ -8,7 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
-import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.single.SingleAdapter;
 import com.mcxtzhang.commonadapter.viewgroup.listener.OnItemClickListener;
@@ -60,20 +59,32 @@ public class LinearLayoutActivity extends AppCompatActivity {
         });
         vgUtil.bind();
 
-
-        ViewGroupUtils.addViews(llUseMore, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
+        new VGUtil.Builder()
+                .setParent(llUseMore)
+                .setAdapter(new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
+                    @Override
+                    public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
+                        holder.setText(R.id.tv, data.getName());
+                    }
+                })
+                .build()
+                .bind();
+/*        ViewGroupUtils.addViews(llRecent, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
             @Override
             public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
                 holder.setText(R.id.tv, data.getName());
             }
-        });
-
-        ViewGroupUtils.addViews(llRecent, new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
-            @Override
-            public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
-                holder.setText(R.id.tv, data.getName());
-            }
-        });
+        });*/
+        new VGUtil.Builder()
+                .setParent(llRecent)
+                .setAdapter(new SingleAdapter<K50Bean>(this, mDatas, R.layout.item_50k) {
+                    @Override
+                    public void onBindViewHolder(ViewGroup parent, ViewHolder holder, K50Bean data, int pos) {
+                        holder.setText(R.id.tv, data.getName());
+                    }
+                })
+                .build()
+                .bind();
 
 
         findViewById(R.id.btnChange).setOnClickListener(new View.OnClickListener() {
@@ -84,7 +95,8 @@ public class LinearLayoutActivity extends AppCompatActivity {
                 }
 
                 //单一ItemView刷新
-                ViewGroupUtils.refreshUI(llCurrent, adapter1);
+                //ViewGroupUtils.refreshUI(llCurrent, adapter1);
+                adapter1.notifyDatasetChanged();
             }
         });
 

@@ -37,6 +37,45 @@ public class VGUtil {
     OnItemClickListener mOnItemClickListener;
     OnItemLongClickListener mOnItemLongClickListener;
 
+    public static class Builder {
+        private ViewGroup mParent;
+        private IViewGroupAdapter mAdapter;
+        private boolean mRemainExistViews;
+        private OnItemClickListener mOnItemClickListener;
+        private OnItemLongClickListener mOnItemLongClickListener;
+
+        public Builder setParent(ViewGroup parent) {
+            mParent = parent;
+            return this;
+        }
+
+        public Builder setAdapter(IViewGroupAdapter adapter) {
+            mAdapter = adapter;
+            return this;
+        }
+
+        public Builder setRemainExistViews(boolean remainExistViews) {
+            mRemainExistViews = remainExistViews;
+            return this;
+        }
+
+        public Builder setOnItemClickListener(OnItemClickListener onItemClickListener) {
+            mOnItemClickListener = onItemClickListener;
+            return this;
+        }
+
+        public Builder setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
+            mOnItemLongClickListener = onItemLongClickListener;
+            return this;
+        }
+
+        public VGUtil build() {
+            return new VGUtil(mParent, mAdapter, mRemainExistViews, mOnItemClickListener, mOnItemLongClickListener);
+        }
+
+
+    }
+
 
     public VGUtil(ViewGroup parent, IViewGroupAdapter adapter) {
         this(parent, adapter, false);

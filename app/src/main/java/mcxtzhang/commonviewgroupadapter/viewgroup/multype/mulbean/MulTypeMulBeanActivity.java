@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mcxtzhang.commonadapter.viewgroup.ViewGroupUtils;
+import com.mcxtzhang.commonadapter.viewgroup.VGUtil;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.cache.ViewHolder;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.IMulTypeHelper;
 import com.mcxtzhang.commonadapter.viewgroup.adapter.mul.MulTypeAdapter;
@@ -39,7 +39,7 @@ public class MulTypeMulBeanActivity extends AppCompatActivity {
 
 
         //多种Item类型：数据结构不同 不传泛型了 使用时需要强转javaBean，判断ItemLayoutId
-        ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_mul_type_mul_bean), new MulTypeAdapter(this, datas) {
+        /*ViewGroupUtils.addViews((ViewGroup) findViewById(R.id.activity_mul_type_mul_bean), new MulTypeAdapter(this, datas) {
             @Override
             public void onBindViewHolder(ViewGroup parent, ViewHolder holder, IMulTypeHelper data, int pos) {
                 switch (data.getItemLayoutId()) {
@@ -56,6 +56,29 @@ public class MulTypeMulBeanActivity extends AppCompatActivity {
                 }
             }
 
-        });
+        });*/
+        //V1.8.0 建议使用Builder模式构建VGUtil
+        new VGUtil.Builder()
+                .setParent((ViewGroup) findViewById(R.id.activity_mul_type_mul_bean))
+                .setAdapter(new MulTypeAdapter(this, datas) {
+                    @Override
+                    public void onBindViewHolder(ViewGroup parent, ViewHolder holder, IMulTypeHelper data, int pos) {
+                        switch (data.getItemLayoutId()) {
+                            case R.layout.item_mulbean_1:
+                                MulBean1 mulBean1 = (MulBean1) data;
+                                Glide.with(MulTypeMulBeanActivity.this)
+                                        .load(mulBean1.getUrl())
+                                        .into((ImageView) holder.itemView);
+                                break;
+                            case R.layout.item_mulbean_2:
+                                MulBean2 mulBean2 = (MulBean2) data;
+                                TextView tv = (TextView) holder.itemView;
+                                tv.setText(mulBean2.getName());
+                        }
+                    }
+
+                })
+                .build()
+                .bind();
     }
 }
