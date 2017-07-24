@@ -15,6 +15,10 @@ public class HeaderFooterAdapter extends HeaderRecyclerAndFooterWrapperAdapter {
         super(mInnerAdapter);
     }
 
+    public void addFooterView(IHeaderHelper headerHelper) {
+        mFooterDatas.add(new HeaderData(headerHelper.getItemLayoutId(), headerHelper));
+    }
+
     /**
      * 添加HeaderView
      */

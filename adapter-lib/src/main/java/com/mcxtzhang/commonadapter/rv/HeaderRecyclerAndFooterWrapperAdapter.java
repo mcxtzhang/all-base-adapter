@@ -1,18 +1,17 @@
 package com.mcxtzhang.commonadapter.rv;
 
-import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.View;
 import android.view.ViewGroup;
-
 
 import java.util.ArrayList;
 
 /**
  * 介绍：一个给RecyclerView添加HeaderView FooterView的装饰Adapter类
  * 重点哦~ RecyclerView的HeaderView将可以被系统回收，不像老版的HeaderView是一个强引用在内存里
+ * <p>
+ * 2017 07 24 将FooterView也改造成HeaderView一致的写法
  * 作者：zhangxutong
  * 邮箱：zhangxutong@imcoming.com
  * 时间： 2016/8/2.
@@ -62,11 +61,12 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
 
     }
 
-    protected static final int BASE_ITEM_TYPE_FOOTER = 2000000;//footerView的ViewType基准值
+    //protected static final int BASE_ITEM_TYPE_FOOTER = 2000000;//footerView的ViewType基准值
 
     //存放HeaderViews的layoudID和data,key是viewType，value 是 layoudID和data，在createViewHOlder里根据layoutId创建UI,在onbindViewHOlder里依据这个data渲染UI
     protected ArrayList<HeaderData> mHeaderDatas = new ArrayList<HeaderData>();
-    protected SparseArrayCompat<View> mFooterViews = new SparseArrayCompat<>();//存放FooterViews,key是viewType
+    //protected SparseArrayCompat<View> mFooterViews = new SparseArrayCompat<>();//存放FooterViews,key是viewType
+    protected ArrayList<HeaderData> mFooterDatas = new ArrayList<>();
 
     protected RecyclerView.Adapter mInnerAdapter;//内部的的普通Adapter
 
@@ -79,7 +79,7 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
     }
 
     public int getFooterViewCount() {
-        return mFooterViews.size();
+        return mFooterDatas.size();
     }
 
     protected int getInnerItemCount() {
@@ -188,10 +188,13 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
     /**
      * 添加FooterView
      *
-     * @param v
+     * @param data
      */
-    public void addFooterView(View v) {
+/*    public void addFooterView(View v) {
         mFooterViews.put(mFooterViews.size() + BASE_ITEM_TYPE_FOOTER, v);
+    }*/
+    public void addFooterView(HeaderData data) {
+        mFooterDatas.add(data);
     }
 
     /**
@@ -202,21 +205,25 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
     }
 
     public void clearFooterView() {
-        mFooterViews.clear();
+        mFooterDatas.clear();
     }
 
+    public void setFooterView(HeaderData data) {
+        clearFooterView();
+        addFooterView(data);
+    }
 
-    public void setFooterView(View v) {
+/*    public void setFooterView(View v) {
         clearFooterView();
         addFooterView(v);
-    }
+    }*/
 
     @Override
     public int getItemViewType(int position) {
         if (isHeaderViewPos(position)) {
             return mHeaderDatas.get(position).getLayoutId();
         } else if (isFooterViewPos(position)) {//举例：header 2， innter 2， 0123都不是，4才是，4-2-2 = 0，ok。
-            return mFooterViews.keyAt(position - getHeaderViewCount() - getInnerItemCount());
+            return mFooterDatas.get(position - getHeaderViewCount() - getInnerItemCount()).getLayoutId();
         }
         return mInnerAdapter.getItemViewType(position - getHeaderViewCount());
     }
@@ -231,8 +238,8 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
                 }
             }
         }
-        if (mFooterViews.get(viewType) != null) {//不为空，说明是footerview
-            return new ViewHolder(mFooterViews.get(viewType));
+        if (isFooterView(viewType)) {//不为空，说明是footerview
+            return ViewHolder.get(parent.getContext(), parent, viewType);
         }
         return mInnerAdapter.onCreateViewHolder(parent, viewType);
     }
@@ -247,6 +254,8 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
             onBindHeaderHolder((ViewHolder) holder, position, mHeaderDatas.get(position).getLayoutId(), mHeaderDatas.get(position).getData());
             return;
         } else if (isFooterViewPos(position)) {
+            int footerPosition = position - getInnerItemCount() - getHeaderViewCount();
+            onBindHeaderHolder((ViewHolder) holder, position, mFooterDatas.get(footerPosition).getLayoutId(), mFooterDatas.get(footerPosition).getData());
             return;
         }
         //举例子，2个header，0 1是头，2是开始，2-2 = 0
@@ -280,7 +289,7 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
                     int viewType = getItemViewType(position);
                     if (isHeaderViewPos(position)) {
                         return gridLayoutManager.getSpanCount();
-                    } else if (mFooterViews.get(viewType) != null) {
+                    } else if (isFooterView(viewType)) {
                         return gridLayoutManager.getSpanCount();
                     }
                     if (spanSizeLookup != null)
@@ -309,6 +318,14 @@ public abstract class HeaderRecyclerAndFooterWrapperAdapter extends RecyclerView
                 p.setFullSpan(true);
             }
         }
+    }
+
+    private boolean isFooterView(int viewType) {
+        if (mFooterDatas.isEmpty()) return false;
+        for (HeaderData footerData : mFooterDatas) {
+            if (footerData.getLayoutId() == viewType) return true;
+        }
+        return false;
     }
 }
 

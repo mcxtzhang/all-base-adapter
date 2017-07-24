@@ -14,6 +14,7 @@ import android.view.ViewGroup;
  * 邮箱：zhangxutong@imcoming.com
  * 时间： 2016/8/2.
  */
+@Deprecated
 public class HeaderAndFooterWrapperAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int BASE_ITEM_TYPE_HEADER = 1000000;//headerview的viewtype基准值
     private static final int BASE_ITEM_TYPE_FOOTER = 2000000;//footerView的ViewType基准值
