@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/app_top_banner_layout"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg_top_banner"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/common_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/app_top_banner_left_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/margin10"
+            android:paddingLeft="@dimen/margin15"
+            android:paddingRight="@dimen/margin15"
+            android:paddingTop="@dimen/margin10">
+
+            <ImageView
+                android:id="@+id/app_top_banner_left_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/app_top_banner_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:paddingRight="@dimen/margin10"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                tools:text="左边"
+                tools:visibility="visible"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_top_banner_left_fame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/app_top_banner_left_layout"
+            android:layout_alignLeft="@id/app_top_banner_left_layout"
+            android:layout_alignTop="@id/app_top_banner_left_layout"/>
+
+        <LinearLayout
+            android:id="@+id/app_top_banner_right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/margin10"
+            android:paddingLeft="@dimen/margin15"
+            android:paddingRight="@dimen/margin15"
+            android:paddingTop="@dimen/margin10">
+
+
+            <ImageView
+                android:id="@+id/app_top_banner_right_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"/>
+
+
+            <TextView
+                android:id="@+id/app_top_banner_right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="@dimen/margin10"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textIsSelectable="false"
+                android:visibility="gone"
+                tools:text="右边"
+                tools:visibility="visible"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_top_banner_right_fame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/app_top_banner_right_layout"
+            android:layout_alignRight="@id/app_top_banner_right_layout"
+            android:layout_alignTop="@id/app_top_banner_right_layout"/>
+
+        <RelativeLayout
+            android:id="@+id/app_top_banner_centre_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/app_top_banner_right_fame"
+            android:layout_toRightOf="@id/app_top_banner_left_fame"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin10"
+            android:paddingTop="@dimen/margin10">
+
+            <ImageView
+                android:id="@+id/app_top_banner_centre_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/app_top_banner_centre_margin"
+                android:layout_width="@dimen/margin5"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/app_top_banner_centre_image"
+                android:textIsSelectable="false"/>
+
+            <TextView
+                android:id="@+id/app_top_banner_centre_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_toLeftOf="@id/app_top_banner_centre_margin"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textIsSelectable="false"
+
+                android:textSize="16sp"
+                android:visibility="gone"
+                tools:text="中间"
+                tools:visibility="visible"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/custom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="gone"/>
+
+
+</LinearLayout>

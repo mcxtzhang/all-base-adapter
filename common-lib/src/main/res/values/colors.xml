@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--note: 关于app value的说明：
+    1. app_main_gray, app_main_white, app_default: 所有的背景灰色,标注有灰色的地方。 其他的背景都是白色设置
+    2. 字体分为：16sp, 14sp, 12sp三种适配
+    3. 其他颜色值标注的命名规则按照类似red_value命名.
+    4. 尺寸的标注： 页面边距都留margin10, 有比例按照比例适配，无比例按照qdimens适配。
+    -->
+    <color name="halftransparent_black">#80000000</color>
+    <color name="transparent_black_per80">#d0000000</color>
+    <color name="app_bg">#f5f5f5</color>
+    <color name="transparent_black">#b0222222</color>
+    <color name="black">#000000</color>
+    <color name="full_transparent">#00000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="line_gray">#aaaaaa</color>
+
+    <!--gray-->
+    <color name="gray1">#dcdcdc</color>
+    <color name="gray2">#dcdcd1</color>
+    <color name="red_orange">#fe6918</color>
+    <color name="red_orange_dark">#ec6115</color>
+    <color name="app_listview_item_press">#f0f0f0</color>
+    <color name="app_main">#ffdc5b</color>
+    <color name="app_default">#000000</color>
+    <!--#efefef-->
+    <color name="app_main_gray">#f5f5f5</color>
+    <color name="app_main_white">#ffffff</color>
+
+
+    <!--原始色值-->
+    <color name="white">#ffffff</color>
+    <color name="gray_dcdcdc">#dcdcdc</color>
+    <color name="gray_d4d4d4">#d4d4d4</color>
+    <color name="blue_00c0ff">#00c0ff</color>
+    <color name="blue_4287e6">#4287e6</color>
+    <color name="blue_2986df">#2986df</color>
+    <color name="black_14141f">#14141f</color>
+    <color name="black_151a22">#151a22</color>
+    <color name="black_2c2c36">#2c2c36</color>
+    <color name="black_262626">#262626</color>
+    <color name="black_231916">#231916</color>
+    <color name="black_FF000000">#FF000000</color>
+    <color name="black_66000000">#66000000</color>
+    <color name="black_FF333333">#FF333333</color>
+
+    <color name="black3">#333333</color>
+    <color name="view_2c2c36">#2c2c36</color>
+    <color name="yellow_e8a603">#e8a603</color>
+
+    <color name="yellow_FFDC5B">#FFDC5B</color>
+    <color name="yellow_fff8d9">#fff8d9</color>
+    <color name="yellow_ffb600">#ffb600</color>
+    <color name="yellow_ffd05b">#ffd05b</color>
+    <color name="yellow_fddc5b">#ffdc5b</color>
+    <color name="white_cbcbcd">#cbcbcd</color>
+    <color name="white_bebec0">#bebec0</color>
+    <color name="gray_333333">#333333</color>
+    <color name="gray_e0e0e0">#e0e0e0</color>
+    <color name="gray_666666">#666666</color>
+    <color name="gray_999999">#999999</color>
+    <color name="gray_797979">#797979</color>
+    <color name="gray_979797">#979797</color>
+    <color name="gray_cccccc">#cccccc</color>
+    <color name="gray_cecece">#cecece</color>
+    <color name="gray_898989">#898989</color>
+    <color name="gray_717578">#717578</color>
+    <color name="gray_efefef">#efefef</color>
+    <color name="gray_f7f7f7">#f7f7f7</color>
+    <color name="bg_dfdfdf">#dfdfdf</color>
+    <color name="red_fa9d3b">#fa9d3b</color>
+    <color name="red_ff4a57">#ff4a57</color>
+    <color name="red_f15a4a">#f15a4a</color>
+    <color name="red_ff6765">#ff6765</color>
+    <color name="red_EF5949">#EF5949</color>
+    <color name="red_ff4a3a">#ff4a3a</color>
+    <color name="red_f32d3b">#f32d3b</color>
+    <color name="red_ff6666">#ff6666</color>
+    <color name="red_ff4d3a">#ff4d3a</color>
+    <color name="red_d93f4a">#d93f4a</color>
+    <color name="red_F52370">#F52370</color>
+    <color name="red_fc6262">#fc6262</color>
+    <color name="red_f96566">#f96566</color>
+    <color name="red">#ff0000</color>
+    <color name="yellow_fedb43">#fedb43</color>
+    <color name="yellow_ffdc5b">#ffdc5b</color>
+    <color name="gray_66333333">#66333333</color>
+    <color name="gray_e4e4e4">#e4e4e4</color>
+    <color name="gray_aaaaaa">#aaaaaa</color>
+    <color name="gray_fafafa">#fafafa</color>
+    <color name="gray_f4f4f4">#f4f4f4</color>
+    <color name="gray_f5f5f5">#f5f5f5</color>
+    <color name="gray_f2f2f2">#f2f2f2</color>
+    <color name="gray_d6d6d6">#d6d6d6</color>
+    <color name="white_dededf">#dededf</color>
+    <color name="yellow_f9891c">#f9891c</color>
+    <color name="yellow_ffcc4d">#ffcc4d</color>
+    <color name="gray_b3b3b3">#b3b3b3</color>
+    <color name="gray_b2b2b2">#b2b2b2</color>
+    <color name="green_16be00">#16be00</color>
+    <color name="green_26ad60">#26ad60</color>
+    <color name="green_76bd3e">#76bd3e</color>
+    <color name="green_36B04D">#36B04D</color>
+
+    <color name="green_85D262">#85D262</color>
+    <color name="green_1AC78F">#1AC78F</color>
+    <color name="green_17C489">#17C489</color>
+    <color name="green_6effe6">#6effe6</color>
+    <color name="gray_light">#999999</color>
+    <color name="gray">#808080</color>
+    <color name="user_btn_bg">#3d3d49</color>
+    <color name="earth_menu_item_bg">#ffe8ecef</color>
+    <color name="sell_red">#e52019</color>
+    <color name="sell_blue">#2177c7</color>
+    <color name="sell_yellow_80">#90f1cd51</color>
+    <color name="sfw_red">#d62d20</color>
+    <color name="sfw_blue">#0057e7</color>
+    <color name="sfw_green">#008744</color>
+    <color name="sfw_yellow">#ffa700</color>
+    <color name="blue_4f87ba">#4f87ba</color>
+    <color name="blue_4C9AD2">#4C9AD2</color>
+    <color name="blue_2e70b9">#2e70b9</color>
+    <color name="blue_138DFE">#138DFE</color>
+    <color name="blue_108EE9">#108EE9</color>
+    <color name="blue_FF0066CC">#FF0066CC</color>
+    <color name="blue_0098ff">#0098ff</color>
+    <color name="blue_29a1f7">#29A1F7</color>
+    <color name="blue_0286fd">#0286FD</color>
+    <color name="blue_00acff">#00ACFF</color>
+    <color name="topBannerBlue">#00ACFF</color>
+
+    <color name="gray_FFB7B7B8">#FFB7B7B8</color>
+    <color name="blue_3C6C9F">#3C6C9F</color>
+    <color name="blue_57ABF2">#57ABF2</color>
+    <color name="orange_F5A623">#F5A623</color>
+    <color name="orange_FFB415">#FFB415</color>
+
+    <color name="purple_9013FE">#9013FE</color>
+    <color name="orange_FF9D23">#FF9D23</color>
+
+    <!-- 俺来卖衍变色值 -->
+    <color name="sell_black">#000000</color>
+    <color name="sell_brown">#7f432f</color>
+    <!-- <color name="sell_yellow">#f1cd51</color> -->
+    <color name="sell_yellow">#FFFFFF</color>
+    <color name="sell_black80">#cc000000</color>
+    <color name="sell_black60">#99000000</color>
+    <color name="sell_black40">#66000000</color>
+    <color name="sell_black20">#33000000</color>
+    <color name="sell_black5">#0d000000</color>
+    <color name="sell_brown70">#b37f432f</color>
+    <color name="sell_brown40">#667f432f</color>
+    <color name="sell_brown10">#1a7f432f</color>
+    <color name="sell_yellow20">#f6ecd1</color>
+    <color name="sell_yellows">#ceb047</color>
+    <color name="sell_red75">#bfe52019</color>
+
+
+</resources>

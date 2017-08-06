@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/adapter-lib/adapter-lib.iml" filepath="$PROJECT_DIR$/adapter-lib/adapter-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/all-base-adapter.iml" filepath="$PROJECT_DIR$/all-base-adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-lib/common-lib.iml" filepath="$PROJECT_DIR$/common-lib/common-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/middleware-lib/middleware-lib.iml" filepath="$PROJECT_DIR$/middleware-lib/middleware-lib.iml" />
     </modules>
   </component>
 </project>

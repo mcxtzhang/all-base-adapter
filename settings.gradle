@@ -1,1 +1,1 @@
-include ':app', ':adapter-lib'
+include ':app', ':adapter-lib', ':common-lib', ':middleware-lib'

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/base_activity_layout"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/app_bg"
+              android:orientation="vertical">
+
+    <com.mcxtzhang.commob_lib.widget.CstTopBanner
+        android:id="@+id/base_activity_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_hight">
+
+    </com.mcxtzhang.commob_lib.widget.CstTopBanner>
+
+    <FrameLayout
+        android:id="@+id/baseFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+</LinearLayout>
