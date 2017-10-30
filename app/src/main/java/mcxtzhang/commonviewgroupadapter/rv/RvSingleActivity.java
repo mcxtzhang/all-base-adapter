@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,7 +29,7 @@ public class RvSingleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rv_single);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.activity_rv_single);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.activity_rv_single);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new CommonAdapter<TestBean>(this, mDatas = initDatas(), R.layout.item_test) {
             @Override
@@ -35,6 +38,30 @@ public class RvSingleActivity extends AppCompatActivity {
                         .load(testBean.getAvatar())
                         .into((ImageView) holder.itemView.findViewById(R.id.ivAvatar));
                 ((TextView) holder.itemView.findViewById(R.id.tvName)).setText(testBean.getName());
+            }
+        });
+
+
+        recyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                View childAt = recyclerView.getChildAt(0);
+                int childLayoutPosition = recyclerView.getChildLayoutPosition(childAt);
+                Log.d(TAG, "onTouch() called with: childLayoutPosition = [" + childLayoutPosition );
+                Log.d(TAG, "onTouch() called with: top = [" + childAt.getTop() );
+                if (childLayoutPosition==0 && childAt.getTop()==recyclerView.getPaddingTop()){
+                    Log.e(TAG, "onTouch: 下拉刷新" );
+                }else {
+                    Log.w(TAG, "onTouch: 不刷新" );
+                }
+
+
+                //Log.d(TAG, "onTouch() called with: recyclerView = [" + recyclerView.get() );
+/*                LinearLayoutManager lm = (LinearLayoutManager) recyclerView.getLayoutManager();
+                lm.getItemCount();
+                lm.getchild*/
+
+                return false;
             }
         });
     }

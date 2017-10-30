@@ -14,6 +14,7 @@ import mcxtzhang.commonviewgroupadapter.lvgv.ListViewSingleActivity;
 import mcxtzhang.commonviewgroupadapter.rv.RvSingleActivity;
 import mcxtzhang.commonviewgroupadapter.rv.header.RvHeaderFooterActivity;
 import mcxtzhang.commonviewgroupadapter.rv.header.RvHeaderMulTypeActivity;
+import mcxtzhang.commonviewgroupadapter.rv.loadmore.RvLoadingMoreActivity;
 import mcxtzhang.commonviewgroupadapter.rv.mul.RvMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.fakergrid.FakerGridViewActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowSwipeActivity;
@@ -90,6 +91,12 @@ public class LauncherActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LauncherActivity.this, RvHeaderMulTypeActivity.class));
+            }
+        });
+        findViewById(R.id.btnRvLoadmore).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LauncherActivity.this, RvLoadingMoreActivity.class));
             }
         });
 

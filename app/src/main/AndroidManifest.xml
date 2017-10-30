@@ -49,6 +49,8 @@
         </activity>
         <activity android:name=".rv.header.RvHeaderMulTypeActivity">
         </activity>
+        <activity android:name=".rv.loadmore.RvLoadingMoreActivity">
+        </activity>
     </application>
 
 </manifest>
