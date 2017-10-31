@@ -28,3 +28,11 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
 }
+
+
+//测试Project属性
+println "***222*** app :project.rootDir："+project.rootDir
+println "***222*** app : project.buildDir："+project.buildDir
+//下面两个属性不同的project 或者说 不同的build.gradle 不同
+println "***222*** app : project.projectDir："+project.projectDir
+println "***222*** app : project.parent："+project.parent

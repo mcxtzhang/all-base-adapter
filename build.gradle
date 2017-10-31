@@ -23,3 +23,41 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task clean360Cache(type: Delete) {
+    delete 'temp360'
+}
+clean.dependsOn clean360Cache
+
+//声明周期
+
+gradle.beforeProject { project ->
+    println "gradle.beforeProject!!!!!!!!:"+project
+}
+
+gradle.taskGraph.whenReady { graph->
+    println "gradle.taskGraph.whenReady!!!!!!:"+gradle
+}
+
+gradle.buildFinished {
+    println "gradle.buildFinished !!!!!!!!!!! : "+it
+}
+
+//测试Gradle属性
+println "***111*** HomeDir:"+gradle.gradleHomeDir
+println "***111*** gradleUserHomeDir:"+gradle.gradleUserHomeDir
+println "***111*** parent:"+gradle.parent
+
+
+//测试Project属性
+println "***222***  :project.rootDir："+project.rootDir
+println "***222***  : project.buildDir："+project.buildDir
+//下面两个属性不同的project 或者说 不同的build.gradle 不同
+println "***222***  : project.projectDir："+project.projectDir
+println "***222***  : project.parent："+project.parent
+
+
+//测试使用gradle.properties
+println "***333***   :customkey：$customkey"
+
+
