@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.mcxtzhang.commonadapter.MainActivity;
+
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.DBMultypeSingleItemActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.multype.mulbean.DBMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.databinding.rv.single.DBSingleActivity;
@@ -18,7 +20,6 @@ import mcxtzhang.commonviewgroupadapter.rv.loadmore.RvLoadingMoreActivity;
 import mcxtzhang.commonviewgroupadapter.rv.mul.RvMulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.fakergrid.FakerGridViewActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.flowswipe.FlowSwipeActivity;
-import mcxtzhang.commonviewgroupadapter.viewgroup.linearlayout.LinearLayoutActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.MulTypeActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.multype.mulbean.MulTypeMulBeanActivity;
 import mcxtzhang.commonviewgroupadapter.viewgroup.scrollview.ScrollViewDemoActivity;
@@ -34,7 +35,8 @@ public class LauncherActivity extends AppCompatActivity {
         findViewById(R.id.btnLinearLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LauncherActivity.this, LinearLayoutActivity.class));
+                //startActivity(new Intent(LauncherActivity.this, LinearLayoutActivity.class));
+                startActivity(new Intent(LauncherActivity.this, MainActivity.class));
             }
         });
 

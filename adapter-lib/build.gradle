@@ -2,14 +2,13 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion BuildToolsVersion
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
-
+        versionCode VersionCode as int
+        versionName VersionName
     }
     buildTypes {
         release {
@@ -25,4 +24,27 @@ android {
 dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.android.support:support-v4:25.0.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
+
+//编写一个任务，将当前目录下的资源 检查 是否有 xx_ 前缀，没有的话 统一追加，修改文件名，这样会导致编译失败报错，强制别人修改。
+task checkPrefix {
+    def PREFIX="adapter_lib_";
+    def layout_path ="$project.projectDir/src/main/res/layout/";
+    doFirst {
+        File layout = new File(layout_path)
+        if (layout.exists()) {
+            println "******************************************************!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + layout;
+            layout.eachFile { file ->
+                if (!file.name.startsWith(PREFIX)){
+                    file.renameTo("$layout_path$PREFIX$file.name")
+                }
+            }
+        }
+    }
+}
+
+gradle.taskGraph.whenReady {
+    checkPrefix.execute()
 }

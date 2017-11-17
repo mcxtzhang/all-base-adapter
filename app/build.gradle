@@ -1,19 +1,30 @@
 apply plugin: 'com.android.application'
-
+repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion BuildToolsVersion
     defaultConfig {
         applicationId "mcxtzhang.commonviewgroupadapter"
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode VersionCode as int
+        versionName VersionName
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            //在BuildConfig里增加一个变量
+            buildConfigField "boolean", "LOG_HTTP_CALLS", "true"
+            //在@string/xxx 增加
+            resValue "string", "custom_string", "Example DEBUG"
+            applicationIdSuffix '.debug'
         }
     }
     dataBinding {
